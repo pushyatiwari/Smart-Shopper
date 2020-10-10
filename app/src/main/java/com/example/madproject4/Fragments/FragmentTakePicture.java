@@ -17,8 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,12 +24,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.madproject4.Activities.CaptureResult;
 import com.example.madproject4.R;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -44,10 +45,10 @@ public class FragmentTakePicture extends Fragment  {
     private  static final int STORAGE_REQUEST_CODE = 200;
     private  static final int IMAGE_PICK_GALLERY_CODE = 2000;
     private  static final int IMAGE_PICK_CAMERA_CODE = 2001;
-    TextView mResultEt;
     String  cameraPermission[];
     String  storagePermission[];
     Uri image_uri;
+     ArrayList<String> itemsArraylist;
 
     public FragmentTakePicture() {
 
@@ -59,10 +60,10 @@ public class FragmentTakePicture extends Fragment  {
         view = inflater.inflate(R.layout.takepicture_fragment, container, false);
         cameraPermission = new String[]{Manifest.permission.CAMERA};
         imageView = (ImageView) view.findViewById(R.id.imageView);
-        mResultEt =(TextView) view.findViewById(R.id.resultEt);
+
         cameraPermission = new String[]{Manifest.permission.CAMERA,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
+        itemsArraylist = new ArrayList<>();
         storagePermission = new String[]{
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
@@ -173,9 +174,40 @@ public class FragmentTakePicture extends Fragment  {
                     for (int i = 0; i < items.size(); i++) {
                         TextBlock myItem = items.valueAt(i);
                         sb.append(myItem.getValue());
-                        sb.append("\n--\n");
                     }
-                    mResultEt.setText(sb.toString());
+                    String temp = "";
+                    for (int i = 0; i < sb.length(); i++) {
+
+                        char ch = sb.charAt(i);
+                        if(ch != ','){
+                            temp += ch;
+
+
+                        }
+                        else{
+
+                            itemsArraylist.add(temp);
+                          //  Log.d("temp val", "onActivityResult: "+ temp);
+                            temp = "";
+                        }
+
+                    }
+
+                    for(int i = 0; i < itemsArraylist.size(); i++)
+                    {
+                        Log.d("arraylist", "onActivityResult: "+ itemsArraylist.get(i));
+
+                    }
+
+                    {
+
+                        Intent intent = new Intent(getActivity(), CaptureResult.class);
+                        intent.putExtra("itemsArray", itemsArraylist);
+                        startActivity(intent);
+
+                    }
+
+
                 }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();

@@ -2,14 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_message"
-            android:icon="@drawable/ic_help"
-            android:title="Message" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_white"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_chat"
+            android:id="@+id/nav_helpful"
             android:icon="@drawable/ic_trending_up"
-            android:title="Chat" />
+            android:title="Helpful Products" />
     </group>
 
+    <item android:title="Communication">
+    <group android:checkableBehavior="single">
+<!--        to email the user a certain product, asks email -->
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_help"
+            android:title="Send" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_trending_up"
+            android:title="Share" />
+
+    </group>
+    </item>
 
 </menu>

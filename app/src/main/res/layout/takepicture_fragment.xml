@@ -8,10 +8,13 @@
     android:orientation="vertical">
 
     <TextView
+
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="120dp"
+        android:textColor="@color/textColor"
+        android:background="#ffffff"
         android:text="Take Picture of ingredients"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
@@ -29,56 +32,37 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@android:color/darker_gray"
+            android:src="@drawable/ic_add_photo"
             tools:layout_editor_absoluteX="0dp" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/capture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="260dp"
+        android:layout_width="160dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="144dp"
+        android:background="#ffffff"
         android:text="Capture"
+        android:textColor="@color/textColor"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/go"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
+        android:layout_width="160dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="144dp"
+        android:background="#ffffff"
         android:text="GO"
+        android:textColor="@color/textColor"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.891"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/go"
-        app:layout_constraintVertical_bias="0.416">
-
-        <TextView
-            android:id="@+id/resultEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/go"
-            app:layout_constraintVertical_bias="0.424" />
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
