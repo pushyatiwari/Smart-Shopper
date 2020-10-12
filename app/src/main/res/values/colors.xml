@@ -8,5 +8,8 @@
     <color name="tabindicatorcolor">#BBBBBB</color>
     <color name="tabbackground">#000000</color>
     <color name="textColor">#000000</color>
+    <color name="textColorBlue">#0F5292</color>
+    <color name="white">#FFFFFF</color>
+
     <color name="textColorlight">#700909</color>
 \</resources>

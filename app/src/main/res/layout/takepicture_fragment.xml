@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,62 +7,44 @@
     android:gravity="center"
     android:orientation="vertical">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="114dp"
+    android:background="#ffffff"
+    android:orientation="vertical">
     <TextView
 
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:text="Press add camera icon to take picture of ingredients"
         android:textColor="@color/textColor"
-        android:background="#ffffff"
-        android:text="Take Picture of ingredients"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="10sp"
+        android:layout_marginLeft="12dp"
+        />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/capture"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_photo"
-            tools:layout_editor_absoluteX="0dp" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="84dp"
+        android:background="#DBD8D8"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/ic_takepic" />
 
     <Button
         android:id="@+id/capture"
-        android:layout_width="160dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="144dp"
-        android:background="#ffffff"
-        android:text="Capture"
-        android:textColor="@color/textColor"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ic_add_photo"
+        android:textColor="#000000"
         android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginLeft="160dp"
 
-    <Button
-        android:id="@+id/go"
-        android:layout_width="160dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="144dp"
-        android:background="#ffffff"
-        android:text="GO"
-        android:textColor="@color/textColor"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:cornerRadius="20dp" />
+</LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

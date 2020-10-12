@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.madproject4.MyAdapter;
+import com.example.madproject4.Adapters.MyAdapter;
 import com.example.madproject4.R;
 
 /**

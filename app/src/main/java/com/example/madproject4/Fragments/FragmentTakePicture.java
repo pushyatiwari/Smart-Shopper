@@ -36,19 +36,19 @@ import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentTakePicture extends Fragment  {
+public class FragmentTakePicture extends Fragment {
 
     View view;
     ImageView imageView;
 
-    private  static final int CAMERA_REQUEST_CODE = 100;
-    private  static final int STORAGE_REQUEST_CODE = 200;
-    private  static final int IMAGE_PICK_GALLERY_CODE = 2000;
-    private  static final int IMAGE_PICK_CAMERA_CODE = 2001;
-    String  cameraPermission[];
-    String  storagePermission[];
+    private static final int CAMERA_REQUEST_CODE = 100;
+    private static final int STORAGE_REQUEST_CODE = 200;
+    private static final int IMAGE_PICK_GALLERY_CODE = 2000;
+    private static final int IMAGE_PICK_CAMERA_CODE = 2001;
+    String cameraPermission[];
+    String storagePermission[];
     Uri image_uri;
-     ArrayList<String> itemsArraylist;
+    ArrayList<String> itemsArraylist;
 
     public FragmentTakePicture() {
 
@@ -74,12 +74,10 @@ public class FragmentTakePicture extends Fragment  {
                 // Perform action on click
                 switch (v.getId()) {
                     case R.id.capture:
-                        if(!checkCameraPermission())
-                        {
+                        if (!checkCameraPermission()) {
                             requestCameraPermission();
                             Log.i("onClick", "onClick: ");
-                        }
-                        else {
+                        } else {
                             pickCamera();
                             Log.i("onClick", "picking: ");
                         }
@@ -88,11 +86,11 @@ public class FragmentTakePicture extends Fragment  {
             }
         });
         return view;
-  }
+    }
 
 
     private void requestCameraPermission() {
-      requestPermissions( cameraPermission, CAMERA_REQUEST_CODE);
+        requestPermissions(cameraPermission, CAMERA_REQUEST_CODE);
     }
 
     private boolean checkCameraPermission() {
@@ -103,33 +101,36 @@ public class FragmentTakePicture extends Fragment  {
 
         return result && result1;
     }
+
     private void pickCamera() {
         ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE,"NewPic");
+        values.put(MediaStore.Images.Media.TITLE, "NewPic");
         values.put(MediaStore.Images.Media.DESCRIPTION, "Image To Text");
 
         image_uri = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,image_uri);
-        startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
+//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//       // cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,image_uri);
+//        startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
+
+        CropImage.activity()
+                .start(getContext(), this);
     }
 
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch(requestCode){
+        switch (requestCode) {
             case CAMERA_REQUEST_CODE:
-                if(grantResults.length > 0){
+                if (grantResults.length > 0) {
                     boolean cameraAccepted = grantResults[0] ==
                             PackageManager.PERMISSION_GRANTED;
                     boolean writeStorageAccepted = grantResults[0] ==
                             PackageManager.PERMISSION_GRANTED;
-                    if(cameraAccepted && writeStorageAccepted){
+                    if (cameraAccepted && writeStorageAccepted) {
                         pickCamera();
-                    }
-                    else{
-                       // Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -140,22 +141,8 @@ public class FragmentTakePicture extends Fragment  {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            Log.i("crop1", "onActivityResult: ");
-            if (requestCode == IMAGE_PICK_GALLERY_CODE) {
-                CropImage.activity(data.getData())
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .start(getContext(),this);
-            }
-            if (requestCode == IMAGE_PICK_CAMERA_CODE) {
-                CropImage.activity(image_uri)
-                        .setGuidelines(CropImageView.Guidelines.ON)
-                        .start(getContext(),this);
-            }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        }
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             Log.i("crop", "onActivityResult: ");
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
@@ -176,26 +163,28 @@ public class FragmentTakePicture extends Fragment  {
                         sb.append(myItem.getValue());
                     }
                     String temp = "";
+                    Log.d("string buider ", "onActivityResult: " + sb.length());
+
                     for (int i = 0; i < sb.length(); i++) {
 
                         char ch = sb.charAt(i);
-                        if(ch != ','){
+                        if (ch != ',') {
                             temp += ch;
-
-
-                        }
-                        else{
-
+                             if(temp.contains("INGREDIENTS") || temp.contains("INGREDIENTS:"))
+                               {
+                                temp = "";
+                                continue;
+                               }
+                        } else {
                             itemsArraylist.add(temp);
-                          //  Log.d("temp val", "onActivityResult: "+ temp);
+                            Log.d("temp val", "onActivityResult: "+ temp);
                             temp = "";
                         }
 
                     }
 
-                    for(int i = 0; i < itemsArraylist.size(); i++)
-                    {
-                        Log.d("arraylist", "onActivityResult: "+ itemsArraylist.get(i));
+                    for (int i = 0; i < itemsArraylist.size(); i++) {
+                        Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));
 
                     }
 
@@ -211,11 +200,10 @@ public class FragmentTakePicture extends Fragment  {
                 }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
-               // Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
             }
         }
     }
-
 
 
 }

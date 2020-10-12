@@ -14,8 +14,13 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.madproject4.Activities.Aboutus;
+import com.example.madproject4.Activities.ContactUs;
+import com.example.madproject4.Activities.Guide;
 import com.example.madproject4.Fragments.FragmentHome;
 import com.example.madproject4.Fragments.FragmentHomeContainer;
 import com.example.madproject4.Fragments.FragmentTakePicture;
@@ -35,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     String lastFragmentTag = null;
     boolean showingFirstFragment = true;
-
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
         //
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-         drawer = findViewById(R.id.drawer);
+        drawer = findViewById(R.id.drawer);
 
-         toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
@@ -66,32 +72,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
-                FragmentManager fragmentManager = getSupportFragmentManager();
                 String fragmentTag = null;
 
 
                 switch (item.getItemId())
-               {
+                {
+                    case R.id.nav_home :
+                    MainActivity m = new MainActivity();
+                    Intent i = new Intent(MainActivity.this,MainActivity.class);
+                    startActivity(i);
+                    finish();
+                    break;
+                    case R.id.nav_helpful :
+                        fragment = new HelpfulProducts();
+                        fragmentTag = "help";
 
-//                   case R.id.nav_home :
-//                       FragmentTakePicture fragmentHomeContainer = new FragmentTakePicture();
-//                       loadFragment(fragmentHomeContainer);
-//                       break;
-                   case R.id.nav_helpful :
-                       fragment = new HelpfulProducts();
-                       fragmentTag = "help";
+                        break;
+                    case R.id.nav_send :
+                        fragment = new SendEmail();
+                        fragmentTag = "send";
 
-                       break;
-                   case R.id.nav_send :
-                       fragment = new SendEmail();
-                       fragmentTag = "send";
-
-                       break;
-                   case R.id.nav_share :
-                       fragment = new ShareApp();
-                       fragmentTag = "share";
-                       break;
-              }
+                        break;
+                    case R.id.nav_share :
+                        fragment = new ShareApp();
+                        fragmentTag = "share";
+                        break;
+                }
                 if(fragment!=null) {
                     addNewFragment(fragment, fragmentTag);
                 }
@@ -135,4 +141,29 @@ public class MainActivity extends AppCompatActivity {
         showingFirstFragment = false;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_side, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.menu_guide:
+               Intent i = new Intent(MainActivity.this, Guide.class);
+               startActivity(i);
+                return true;
+            case R.id.menu_aboutus:
+                Intent i1 = new Intent(MainActivity.this, Aboutus.class);
+                startActivity(i1);
+                return true;
+            case R.id.menu_contact:
+                Intent i2 = new Intent(MainActivity.this, ContactUs.class);
+                startActivity(i2);                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

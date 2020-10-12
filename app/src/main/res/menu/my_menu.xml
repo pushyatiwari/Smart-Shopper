@@ -8,7 +8,8 @@
         <item
             android:id="@+id/nav_helpful"
             android:icon="@drawable/ic_trending_up"
-            android:title="Helpful Products" />
+            android:title="Newest Products" />
+
     </group>
 
     <item android:title="Communication">

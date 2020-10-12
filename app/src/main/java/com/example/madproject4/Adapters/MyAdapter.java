@@ -1,4 +1,4 @@
-package com.example.madproject4;
+package com.example.madproject4.Adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.madproject4.R;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -56,20 +57,4 @@ public class MyAdapter extends ArrayAdapter<String> {
     return row;
     }
 
-    public Bitmap getBitmapFromURL(String src) {
-        try {
-            java.net.URL url = new java.net.URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url
-                    .openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            Toast.makeText(context, "bitmap", Toast.LENGTH_SHORT).show();
-            return myBitmap;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

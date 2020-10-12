@@ -4,8 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.SendEmail"
+    android:background="@color/white"
+
    >
 
 
@@ -24,7 +27,7 @@
             android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter Product" />
+            android:hint="Enter Product" />
 
 
 
@@ -33,7 +36,9 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:background="@color/white"
+        android:textColor="@color/tabbackground"
+        android:text="share" />
 
 
 </LinearLayout>

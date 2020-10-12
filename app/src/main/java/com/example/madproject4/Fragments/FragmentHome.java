@@ -1,17 +1,20 @@
 package com.example.madproject4.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import com.example.madproject4.MyAdapter;
+import com.example.madproject4.Activities.CaptureResult;
+import com.example.madproject4.Activities.ShowDetailsCapture;
+import com.example.madproject4.Adapters.MyAdapter;
 import com.example.madproject4.R;
 
 public class FragmentHome extends Fragment {
@@ -39,6 +42,13 @@ public class FragmentHome extends Fragment {
         MyAdapter adapter = new MyAdapter(getActivity(), mTitle, mDescription, images);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                Intent i = new Intent(getActivity(), ShowDetailsCapture.class);
+                startActivity(i);
+            }
+        });
 
         return view;
 

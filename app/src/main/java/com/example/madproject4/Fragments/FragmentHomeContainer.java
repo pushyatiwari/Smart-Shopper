@@ -31,7 +31,6 @@ public class FragmentHomeContainer extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        Toast.makeText(getActivity(), "onCreate frag", Toast.LENGTH_SHORT).show();
         View view =  inflater.inflate(R.layout.fragment_fragment_home_container, container, false);
         //
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout_id);

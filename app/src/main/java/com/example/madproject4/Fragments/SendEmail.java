@@ -25,7 +25,7 @@ public class SendEmail extends Fragment {
     public SendEmail() {
         // Required empty public constructor
     }
-    String arr[] = {"Acetic Acid", "Almond", "Aluminium", "Amino acid", "Jalapeno","Acetic Acid", "Almond", "Aluminium", "Amino acid", "Jalapeno"};
+    String arr[] = {"Acetic Acid", "Almond", "Aluminium", "Amino acid", "Jalapeno"};
 
 
     @Override
