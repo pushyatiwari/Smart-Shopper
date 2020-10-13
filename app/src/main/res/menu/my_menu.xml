@@ -8,7 +8,7 @@
         <item
             android:id="@+id/nav_helpful"
             android:icon="@drawable/ic_trending_up"
-            android:title="Newest Products" />
+            android:title="Safest Products" />
 
     </group>
 

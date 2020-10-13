@@ -29,23 +29,24 @@ public class CaptureResult extends AppCompatActivity {
         itemsArray = (ArrayList<String>) getIntent().getSerializableExtra("itemsArray");
 
         int size1 = itemsArray.size();
-        String acetic = "https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80";
-        String url = "https://images.unsplash.com/photo-1519996529931-28324d5a630e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80";
-        String alomonds = "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
-        String alum = "https://images.unsplash.com/photo-1574163783773-39f4681829b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
+        String acetate = "https://img.rolandberger.com/content_assets/content_images/captions/rb_pub_17_011_foc_us_chemical_winners_image_image_caption_none.jpg";
+        String url = "https://s.alicdn.com/@sc01/kf/HTB1IwrUd25G3KVjSZPxq6zI3XXag.jpg_300x300.jpg";
+        String AluminiumSodiumsulfte = "https://5.imimg.com/data5/BP/AF/MY-26952425/textile-auxiliaries-chemical-500x500.jpg";
         String mDescription[] = {"Substance is harmless...", "good source of uns...", "can cause kidney...", "basic elements ...", "Variety of pepper...",
                 "Substance is harmless...", "good source of uns...", "can cause kidney...", "basic elements ...", "Variety of pepper..."};
+
+
         String images[] = new String[size1];
         int flag = 0;
         for (int i = 0; i < size1; i++) {
             if (flag == 0) {
-                images[i] = acetic;
+                images[i] = acetate;
                 flag = 1;
             } else if (flag == 1) {
                 images[i] = url;
                 flag = 2;
             } else if (flag == 2) {
-                images[i] = alum;
+                images[i] = AluminiumSodiumsulfte;
                 flag = 0;
             }
         }

@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.HelpfulProducts"
+    tools:context=".Fragments.SafestProducts"
    >
 
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Latest Product in market"
+    android:text="Some safe products in market"
     android:textColor="@color/textColor"
     android:background="#ffffff"
     />

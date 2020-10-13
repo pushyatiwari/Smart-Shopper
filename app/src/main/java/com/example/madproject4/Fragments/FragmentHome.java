@@ -20,14 +20,18 @@ import com.example.madproject4.R;
 public class FragmentHome extends Fragment {
     View view;
     ListView listView;
-    String acetic = "https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80";
-    String url = "https://images.unsplash.com/photo-1519996529931-28324d5a630e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80";
-    String alomonds = "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
-     String alum= "https://images.unsplash.com/photo-1574163783773-39f4681829b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80";
-    String mTitle[] = {"Acetic Acid", "Almond", "Aluminium", "Amino acid", "Jalapeno","Acetic Acid", "Almond", "Aluminium", "Amino acid", "Jalapeno"};
-    String mDescription[] = {"Substance is harmless...", "good source of uns...", "can cause kidney...", "basic elements ...", "Variety of pepper...",
-            "Substance is harmless...", "good source of uns...", "can cause kidney...", "basic elements ...", "Variety of pepper..."};
-    String images[] = {acetic,alomonds,url,alum,url,acetic,alomonds,url,alum,url };
+    String acetate = "https://img.rolandberger.com/content_assets/content_images/captions/rb_pub_17_011_foc_us_chemical_winners_image_image_caption_none.jpg";
+    String url = "https://s.alicdn.com/@sc01/kf/HTB1IwrUd25G3KVjSZPxq6zI3XXag.jpg_300x300.jpg";
+    String AluminiumSodiumsulfte = "https://5.imimg.com/data5/BP/AF/MY-26952425/textile-auxiliaries-chemical-500x500.jpg";
+     String benzoateurl= "https://d37ky63zmmmzfj.cloudfront.net/production/itemimages/packed_food/sauces_ketchup/other_sauces/cookwell_sodiumbenzoate_25gm.jpg";
+    String mTitle[] = {"Calcium Acetate", "Aluminium sodium sulfate(E521)", "Benzoate",
+            "Amino acid", "Calcium Diglutamate",
+            "Calcium Acetate", "Aluminium sodium sulfate(E521)", "Benzoate", "Amino acid", "Acetylated oxidized starch(E1451)"};
+    String mDescription[] = {"Substance is harmless...", "health affecting, found...",
+            "may cause asthma and irritation of the lungs...", "basic elements ...", "May cause adverse effects...",
+            "Substance is harmless...", "health affecting, found...",
+            "may cause asthma and irritation of the lungs...", "basic elements ...", "Thickener, emulsifier, added to food for babies..."};
+    String images[] = {acetate,AluminiumSodiumsulfte,benzoateurl,acetate,url,acetate,AluminiumSodiumsulfte,benzoateurl,acetate,url };
 
     public FragmentHome() {
 

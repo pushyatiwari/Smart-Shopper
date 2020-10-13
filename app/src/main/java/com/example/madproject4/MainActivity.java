@@ -13,22 +13,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.madproject4.Activities.Aboutus;
 import com.example.madproject4.Activities.ContactUs;
 import com.example.madproject4.Activities.Guide;
-import com.example.madproject4.Fragments.FragmentHome;
 import com.example.madproject4.Fragments.FragmentHomeContainer;
-import com.example.madproject4.Fragments.FragmentTakePicture;
-import com.example.madproject4.Fragments.HelpfulProducts;
-import com.example.madproject4.Fragments.HistoryFragment;
+import com.example.madproject4.Fragments.SafestProducts;
 import com.example.madproject4.Fragments.SendEmail;
 import com.example.madproject4.Fragments.ShareApp;
-import com.example.madproject4.Fragments.ViewPagerAdapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -84,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     break;
                     case R.id.nav_helpful :
-                        fragment = new HelpfulProducts();
+                        fragment = new SafestProducts();
                         fragmentTag = "help";
 
                         break;
