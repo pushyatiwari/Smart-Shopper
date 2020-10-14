@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.example.madproject4.R;
 
 public class Guide extends AppCompatActivity {
-String guide = "Take picture of ingredients, crop it suitable, and press ok and get the" +
-        "details of harmful products used in the product";
+String guide = "Take picture of ingredients, crop it to focus on ingredients, and press ok and get the " +
+        "details of ingredients used in the product";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

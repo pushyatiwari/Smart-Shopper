@@ -4,14 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_marginLeft="12dp"
     tools:context=".Activities.Aboutus">
-
+    <TextView
+        android:id="@+id/txtabouttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:text="ABOUT US"
+        />
+    <View
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0"/>
     <TextView
         android:id="@+id/txtabout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
+        android:layout_margin="12dp"
         android:textColor="#000000"
         android:textSize="30dp"
         android:hint="about us details"

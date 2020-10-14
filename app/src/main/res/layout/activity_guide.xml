@@ -9,14 +9,25 @@
     tools:context=".Activities.Guide">
 
     <TextView
+        android:id="@+id/topic"
+        android:layout_margin="12dp"
+        android:textColor="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How to use the app" />
+    <View
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0"/>
+    <TextView
         android:id="@+id/txtGuide"
-        android:layout_marginLeft="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:layout_margin="12dp"
         android:hint="Guide details"
-        android:textSize="30dp"
-   />
+        android:textColor="#000000"
+        android:textSize="25dp" />
 
 
 </LinearLayout>

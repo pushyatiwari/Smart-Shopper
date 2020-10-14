@@ -19,7 +19,9 @@ import android.view.MenuItem;
 import com.example.madproject4.Activities.Aboutus;
 import com.example.madproject4.Activities.ContactUs;
 import com.example.madproject4.Activities.Guide;
-import com.example.madproject4.Fragments.FragmentHomeContainer;
+import com.example.madproject4.Fragments.FragmentTakePicContainer;
+import com.example.madproject4.Fragments.FragmentTakePicture;
+import com.example.madproject4.Fragments.HomeFragment;
 import com.example.madproject4.Fragments.SafestProducts;
 import com.example.madproject4.Fragments.SendEmail;
 import com.example.madproject4.Fragments.ShareApp;
@@ -54,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        FragmentHomeContainer fragmentHomeContainer = new FragmentHomeContainer();
-        loadFragment(fragmentHomeContainer);
+       HomeFragment fragmentTakePicContainer = new HomeFragment();
+        loadFragment(fragmentTakePicContainer);
 
 
 
@@ -77,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                     break;
+                    case R.id.nav_takePicture :
+                        fragment = new FragmentTakePicture();
+                        fragmentTag = "takePic";
+
+                        break;
                     case R.id.nav_helpful :
                         fragment = new SafestProducts();
                         fragmentTag = "help";

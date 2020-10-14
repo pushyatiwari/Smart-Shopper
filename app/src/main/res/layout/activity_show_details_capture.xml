@@ -23,15 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="YELLOW 2G (E107)"
+            android:text="YELLOW 2G(E107)"
             android:textColor="@color/textColorBlue"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_margin="8dp"
             android:src="@drawable/ic_error" />
     </LinearLayout>
     <View

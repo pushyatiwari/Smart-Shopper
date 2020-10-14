@@ -12,12 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.madproject4.Activities.CaptureResult;
 import com.example.madproject4.Activities.ShowDetailsCapture;
 import com.example.madproject4.Adapters.MyAdapter;
 import com.example.madproject4.R;
 
-public class FragmentHome extends Fragment {
+public class Home_base_Products extends Fragment {
     View view;
     ListView listView;
     String acetate = "https://img.rolandberger.com/content_assets/content_images/captions/rb_pub_17_011_foc_us_chemical_winners_image_image_caption_none.jpg";
@@ -33,14 +32,14 @@ public class FragmentHome extends Fragment {
             "may cause asthma and irritation of the lungs...", "basic elements ...", "Thickener, emulsifier, added to food for babies..."};
     String images[] = {acetate,AluminiumSodiumsulfte,benzoateurl,acetate,url,acetate,AluminiumSodiumsulfte,benzoateurl,acetate,url };
 
-    public FragmentHome() {
+    public Home_base_Products() {
 
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.home_fragment, container, false);
+        view = inflater.inflate(R.layout.home_baseproducts, container, false);
 
         listView = view.findViewById(R.id.listView);
         MyAdapter adapter = new MyAdapter(getActivity(), mTitle, mDescription, images);

@@ -42,9 +42,7 @@ public class FragmentTakePicture extends Fragment {
     ImageView imageView;
 
     private static final int CAMERA_REQUEST_CODE = 100;
-    private static final int STORAGE_REQUEST_CODE = 200;
-    private static final int IMAGE_PICK_GALLERY_CODE = 2000;
-    private static final int IMAGE_PICK_CAMERA_CODE = 2001;
+
     String cameraPermission[];
     String storagePermission[];
     Uri image_uri;

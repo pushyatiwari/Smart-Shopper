@@ -6,8 +6,12 @@
             android:icon="@drawable/ic_home_white"
             android:title="Home" />
         <item
+            android:id="@+id/nav_takePicture"
+            android:icon="@drawable/ic_takepic"
+            android:title="Take Picture" />
+        <item
             android:id="@+id/nav_helpful"
-            android:icon="@drawable/ic_trending_up"
+            android:icon="@drawable/ic_safe"
             android:title="Safest Products" />
 
     </group>
@@ -17,11 +21,11 @@
 <!--        to email the user a certain product, asks email -->
         <item
             android:id="@+id/nav_send"
-            android:icon="@drawable/ic_help"
+            android:icon="@drawable/ic_send"
             android:title="Send" />
         <item
             android:id="@+id/nav_share"
-            android:icon="@drawable/ic_trending_up"
+            android:icon="@drawable/ic_share"
             android:title="Share" />
 
     </group>

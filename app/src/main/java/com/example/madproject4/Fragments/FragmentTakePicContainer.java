@@ -9,7 +9,6 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.madproject4.R;
 import com.google.android.material.tabs.TabLayout;
@@ -17,11 +16,11 @@ import com.google.android.material.tabs.TabLayout;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentHomeContainer extends Fragment {
+public class FragmentTakePicContainer extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    public FragmentHomeContainer() {
+    public FragmentTakePicContainer() {
         // Required empty public constructor
     }
 
@@ -36,7 +35,7 @@ public class FragmentHomeContainer extends Fragment {
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout_id);
         viewPager = (ViewPager) view.findViewById(R.id.viewpager_id);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(),0);
-        adapter.AddFragment(new FragmentHome(),"home");
+        adapter.AddFragment(new Home_base_Products(),"home");
         adapter.AddFragment(new FragmentTakePicture(),"");
         adapter.AddFragment(new HistoryFragment(),"");
 
