@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -17,14 +18,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.madproject4.Activities.CaptureResult;
+import com.example.madproject4.Database.DatabaseHelper;
 import com.example.madproject4.R;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
@@ -42,7 +46,7 @@ public class FragmentTakePicture extends Fragment {
     ImageView imageView;
 
     private static final int CAMERA_REQUEST_CODE = 100;
-
+    DatabaseHelper myDb;
     String cameraPermission[];
     String storagePermission[];
     Uri image_uri;
@@ -58,7 +62,7 @@ public class FragmentTakePicture extends Fragment {
         view = inflater.inflate(R.layout.takepicture_fragment, container, false);
         cameraPermission = new String[]{Manifest.permission.CAMERA};
         imageView = (ImageView) view.findViewById(R.id.imageView);
-
+        myDb = new DatabaseHelper(getActivity());
         cameraPermission = new String[]{Manifest.permission.CAMERA,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE};
         itemsArraylist = new ArrayList<>();
@@ -174,12 +178,31 @@ public class FragmentTakePicture extends Fragment {
                                 continue;
                                }
                         } else {
-                            itemsArraylist.add(temp);
+                            //if that similar item exists in sql, take the title and push to arraylist.
+                            Cursor res = myDb.getAllData();
+                            if (res.getCount() == 0) {
+                                // show message
+                                showMessage("Error", "Nothing found");
+                                return;
+                            }
+
+                            while (res.moveToNext()) {
+
+                                String title = res.getString(1);
+                                Log.d("tempSQL", "onActivityResult: "+title+" , temp - "+temp);
+                                if(temp.toLowerCase().contains(title.toLowerCase())){
+                                    itemsArraylist.add(title);
+                                    break;
+                                }
+                             }
+                            
+
                             Log.d("temp val", "onActivityResult: "+ temp);
                             temp = "";
                         }
 
                     }
+                    itemsArraylist.add("last");
 
                     for (int i = 0; i < itemsArraylist.size(); i++) {
                         Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));
@@ -201,6 +224,13 @@ public class FragmentTakePicture extends Fragment {
                 // Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    public void showMessage(String title, String Message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
     }
 
 

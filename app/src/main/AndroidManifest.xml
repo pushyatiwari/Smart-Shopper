@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.ShowDetailsCapture"></activity>
+        <activity android:name=".Activities.AddDataToDatabase"></activity>
+        <activity android:name=".Activities.ShowDetailsCapture" />
         <activity android:name=".Activities.ContactUs" />
         <activity android:name=".Activities.Aboutus" />
         <activity android:name=".Activities.Guide" />
