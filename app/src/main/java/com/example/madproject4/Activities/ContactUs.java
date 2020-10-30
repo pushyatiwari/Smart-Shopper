@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.madproject4.R;
 
-public class ContactUs extends AppCompatActivity {
+public class ContactUs extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

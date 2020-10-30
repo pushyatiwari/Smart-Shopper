@@ -49,11 +49,18 @@
         android:hint="harmful" />
 
     <EditText
-        android:id="@+id/addedin"
+    android:id="@+id/addedin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="textPersonName"
+    android:hint="addedin" />
+
+    <EditText
+        android:id="@+id/imageurl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="addedin" />
+        android:hint="Image Url" />
 
     <Button
         android:id="@+id/insert_dbbtn"

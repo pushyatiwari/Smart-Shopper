@@ -15,10 +15,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.madproject4.Activities.Aboutus;
+import com.example.madproject4.Activities.BaseActivity;
 import com.example.madproject4.Activities.ContactUs;
 import com.example.madproject4.Activities.Guide;
+import com.example.madproject4.Activities.ShowDetailsCapture;
+import com.example.madproject4.Database.DatabaseHelper;
 import com.example.madproject4.Fragments.FragmentTakePicContainer;
 import com.example.madproject4.Fragments.FragmentTakePicture;
 import com.example.madproject4.Fragments.HomeFragment;
@@ -28,7 +32,7 @@ import com.example.madproject4.Fragments.ShareApp;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     private DrawerLayout drawer;
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     boolean showingFirstFragment = true;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
+    DatabaseHelper d ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
-
+      //  this.deleteDatabase("Ingredients2.db");
+        // d = new DatabaseHelper(this);
        HomeFragment fragmentTakePicContainer = new HomeFragment();
-        loadFragment(fragmentTakePicContainer);
-
+       loadFragment(fragmentTakePicContainer);
 
 
 
@@ -73,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId())
                 {
+
                     case R.id.nav_home :
                     MainActivity m = new MainActivity();
                     Intent i = new Intent(MainActivity.this,MainActivity.class);
@@ -142,29 +147,5 @@ public class MainActivity extends AppCompatActivity {
         showingFirstFragment = false;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_side, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id){
-            case R.id.menu_guide:
-               Intent i = new Intent(MainActivity.this, Guide.class);
-               startActivity(i);
-                return true;
-            case R.id.menu_aboutus:
-                Intent i1 = new Intent(MainActivity.this, Aboutus.class);
-                startActivity(i1);
-                return true;
-            case R.id.menu_contact:
-                Intent i2 = new Intent(MainActivity.this, ContactUs.class);
-                startActivity(i2);                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }

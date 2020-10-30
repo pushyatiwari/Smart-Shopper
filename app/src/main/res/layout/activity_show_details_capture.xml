@@ -8,6 +8,8 @@
     android:layout_marginLeft="12dp"
     tools:context=".Activities.ShowDetailsCapture">
 
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,21 +20,30 @@
         android:layout_marginEnd="0dp"
         android:orientation="horizontal">
 
+
+        <ImageView
+            android:id="@+id/image_title_show"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/ic_takepic" />
+
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/title_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="YELLOW 2G(E107)"
             android:textColor="@color/textColorBlue"
+            android:hint="Title goes here..."
+            android:layout_marginLeft="10dp"
             android:textSize="30dp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/harmful_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:src="@drawable/ic_error" />
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_error"
+            android:visibility="invisible"/>
     </LinearLayout>
     <View
         android:layout_marginTop="12dp"
@@ -40,7 +51,7 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
     <TextView
-        android:id="@+id/descTitle"
+
         android:layout_width="264dp"
         android:layout_marginTop="12dp"
         android:layout_height="wrap_content"
@@ -51,11 +62,10 @@
 
     <TextView
         android:id="@+id/desc"
-        android:layout_width="264dp"
+        android:layout_width="match_parent"
         android:layout_marginTop="12dp"
-
         android:layout_height="wrap_content"
-        android:text="Synthetic nitrogen coloring. Added \n
+        android:hint="Synthetic nitrogen coloring. Added \n
 mainly to mayonnaise. "
         android:textColor="#000000" />
     <View
@@ -65,7 +75,6 @@ mainly to mayonnaise. "
         android:background="#c0c0c0"/>
 
     <TextView
-        android:id="@+id/effects"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -74,10 +83,10 @@ mainly to mayonnaise. "
 
     <TextView
         android:id="@+id/disease"
-        android:layout_width="264dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="May worsen the symptoms of asthma,\ndevelop allergies and cause hyperactivity.\n
+        android:hint="May worsen the symptoms of asthma,\ndevelop allergies and cause hyperactivity.\n
 Substance banned in USA, Austria, Switzerland, Japan"
         android:textColor="#000000" />
 

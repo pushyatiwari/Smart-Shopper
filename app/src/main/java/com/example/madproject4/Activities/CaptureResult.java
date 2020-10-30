@@ -3,71 +3,62 @@ package com.example.madproject4.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.madproject4.Adapters.MyAdapter;
+import com.example.madproject4.Database.DatabaseHelper;
 import com.example.madproject4.R;
 
 import java.util.ArrayList;
 
-public class CaptureResult extends AppCompatActivity {
+public class CaptureResult extends BaseActivity {
     ArrayList<String> itemsArray;
      ListView itemlistview;
+    DatabaseHelper myDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture_result);
-
+        myDb = new DatabaseHelper(this);
         itemlistview = findViewById(R.id.captureListView);
         //    itemsArray = getIntent().getSerializableExtra("itemsArray");
-        Intent intent = getIntent();
 
         itemsArray = (ArrayList<String>) getIntent().getSerializableExtra("itemsArray");
+        int size = itemsArray.size();
+       final String mTitle[] = new String[size];
+        String mdesc[] = new String[size];
+        String mimages[] = new String[size];
 
-        int size1 = itemsArray.size();
-        String acetate = "https://img.rolandberger.com/content_assets/content_images/captions/rb_pub_17_011_foc_us_chemical_winners_image_image_caption_none.jpg";
-        String url = "https://s.alicdn.com/@sc01/kf/HTB1IwrUd25G3KVjSZPxq6zI3XXag.jpg_300x300.jpg";
-        String AluminiumSodiumsulfte = "https://5.imimg.com/data5/BP/AF/MY-26952425/textile-auxiliaries-chemical-500x500.jpg";
-        String mDescription[] = {"Substance is harmless...", "good source of uns...", "can cause kidney...", "basic elements ...", "Variety of pepper...",
-                "Substance is harmless...", "good source of uns...", "can cause kidney...", "basic elements ...", "Variety of pepper..."};
+        for(int i = 0; i < itemsArray.size();i++)
+        {
+           String title = itemsArray.get(i);
+           Cursor res =  myDb.getData(title);
+           mTitle[i] = title;
+            while (res.moveToNext()) {
 
+                     mdesc[i] = res.getString(2).substring(0,20);
+                      mimages[i] = res.getString(6);
+                      break;
 
-        String images[] = new String[size1];
-        int flag = 0;
-        for (int i = 0; i < size1; i++) {
-            if (flag == 0) {
-                images[i] = acetate;
-                flag = 1;
-            } else if (flag == 1) {
-                images[i] = url;
-                flag = 2;
-            } else if (flag == 2) {
-                images[i] = AluminiumSodiumsulfte;
-                flag = 0;
             }
-        }
-        String desc[] = new String[size1];
 
-        for (int i = 0; i < size1; i++) {
-            desc[i] = mDescription[i % mDescription.length];
         }
-
-        String mTitle[] = new String[size1];
-        for (int i = 0; i < size1; i++) {
-            mTitle[i] = itemsArray.get(i);
-        }
-
-        MyAdapter adapter = new MyAdapter(this, mTitle, desc, images);
+        MyAdapter adapter = new MyAdapter(this, mTitle, mdesc, mimages);
         itemlistview.setAdapter(adapter);
         itemlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Intent i = new Intent(CaptureResult.this, ShowDetailsCapture.class);
-                startActivity(i);
+                Intent i_newshowdetails = new Intent(CaptureResult.this, ShowDetailsCapture.class);
+                i_newshowdetails.putExtra("title",mTitle[position]);
+                //Toast.makeText(CaptureResult.this, mTitle[position], Toast.LENGTH_SHORT).show();
+                startActivity(i_newshowdetails);
             }
         });
     }

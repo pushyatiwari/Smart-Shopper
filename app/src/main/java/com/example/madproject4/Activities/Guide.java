@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.madproject4.R;
 
-public class Guide extends AppCompatActivity {
+public class Guide extends BaseActivity {
 String guide = "Take picture of ingredients, crop it to focus on ingredients, and press ok and get the " +
         "details of ingredients used in the product";
     @Override

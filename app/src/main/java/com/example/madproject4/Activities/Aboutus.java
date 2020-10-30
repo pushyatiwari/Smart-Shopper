@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.madproject4.R;
 
-public class Aboutus extends AppCompatActivity {
+public class Aboutus extends BaseActivity {
  String s = "Welcome, your number one source for all" +
          " food . We're dedicated to " +
          "giving you the very best of product, with a focus on [three characteristics," +

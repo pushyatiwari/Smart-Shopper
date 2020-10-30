@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="124dp"
         android:layout_height="104dp"
-        android:src="@drawable/shopnavheader" />
+        android:src="@drawable/imagehealth" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

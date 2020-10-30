@@ -13,9 +13,9 @@ import android.widget.Toast;
 import com.example.madproject4.Database.DatabaseHelper;
 import com.example.madproject4.R;
 
-public class AddDataToDatabase extends AppCompatActivity {
+public class AddDataToDatabase extends BaseActivity {
     DatabaseHelper myDb;
-    private EditText id, title, desc, effects, harmful, addedin;
+    private EditText id, title, desc, effects, harmful, addedin, imageurl;
     private Button btnAddData;
     Button btnviewAll;
 
@@ -30,7 +30,7 @@ public class AddDataToDatabase extends AppCompatActivity {
         effects = (EditText) findViewById(R.id.effects);
         harmful = (EditText) findViewById(R.id.harmful);
         addedin = (EditText) findViewById(R.id.addedin);
-
+        imageurl = (EditText) findViewById(R.id.imageurl);
         btnAddData = (Button) findViewById(R.id.insert_dbbtn);
         btnviewAll = (Button) findViewById(R.id.view_dbbtn);
 
@@ -50,7 +50,8 @@ public class AddDataToDatabase extends AppCompatActivity {
                                 desc.getText().toString(),
                                 effects.getText().toString(),
                                 harmful.getText().toString(),
-                                addedin.getText().toString()
+                                addedin.getText().toString(),
+                                imageurl.getText().toString()
                                 );
                         if (isInserted == true)
                             Toast.makeText(AddDataToDatabase.this, "Data Inserted", Toast.LENGTH_LONG).show();
@@ -81,10 +82,10 @@ public class AddDataToDatabase extends AppCompatActivity {
                             buffer.append("effects :" + res.getString(3) + "\n");
                             buffer.append("harmful :" + res.getString(4) + "\n");
                             buffer.append("added in :" + res.getString(5) + "\n\n");
+                            buffer.append("image url" + res.getString(6) + "\n\n");
 
 
                         }
-
                         // Show all data
                         showMessage("Data", buffer.toString());
                     }

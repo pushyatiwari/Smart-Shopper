@@ -24,12 +24,11 @@ public class homefragment_base extends Fragment {
     public homefragment_base() {
         // Required empty public constructor
     }
-    String guide  = "Hi, this app focuses on the product awareness\n" +
-            "Directions to use the app:\n" +
-            "Take picture of ingredients of the product and \n" +
-            "get the details of ingredients used in product, \n" +
-            "and decide whether to buy a product or not";
-String imgUrl = "https://image.freepik.com/free-vector/healthy-foodstuff-paper-package-basket-food-item-milk-green-herb-isolated-white-cartoon-illustration-supermarket-shopping-vegetable-fruit-meal_169479-927.jpg";
+    String guide  = "Choose products smartly -  for a healthy lifestyle.\n";
+    //https://cdn.trendhunterstatic.com/thumbs/smart-shopping-cart.jpeg
+   // https://image.shutterstock.com/image-photo/invest-your-health-slate-blackboard-600w-289592738.jpg
+String imgUrl = "https://cdn.trendhunterstatic.com/thumbs/smart-shopping-cart.jpeg";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,10 +52,12 @@ String imgUrl = "https://image.freepik.com/free-vector/healthy-foodstuff-paper-p
             public void onClick(View v) {
                 FragmentTakePicture fragmentTakePicContainer = new FragmentTakePicture();
                 getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null)
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
                         .replace(R.id.fragment_container_home, fragmentTakePicContainer)
                         .commit();
             }
         });
+        //android.R.anim.slide_in_left
 
 
         return view;

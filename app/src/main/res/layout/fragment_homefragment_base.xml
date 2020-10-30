@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_margin="12dp"
+
            />
 
         <TextView
@@ -28,7 +29,7 @@
             android:layout_margin="8dp"
             android:textColor="@color/textColor"
             android:hint="guide"
-            android:background="@color/white"
+            android:background="@color/lightest_blue"
             android:textSize="25dp" />
 
         <Button
