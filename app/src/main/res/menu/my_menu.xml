@@ -10,9 +10,9 @@
             android:icon="@drawable/ic_takepic"
             android:title="Take Picture" />
         <item
-            android:id="@+id/nav_helpful"
+            android:id="@+id/nav_search_food"
             android:icon="@drawable/ic_safe"
-            android:title="Safest Products" />
+            android:title="Search Food" />
 
     </group>
 
@@ -20,9 +20,9 @@
     <group android:checkableBehavior="single">
 <!--        to email the user a certain product, asks email -->
         <item
-            android:id="@+id/nav_send"
+            android:id="@+id/nav_history"
             android:icon="@drawable/ic_send"
-            android:title="Send" />
+            android:title="Recent search" />
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_share"

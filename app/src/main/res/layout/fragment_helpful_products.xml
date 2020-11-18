@@ -7,16 +7,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.SafestProducts"
    >
-
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Some safe products in market"
-    android:textColor="@color/textColor"
-    android:background="#ffffff"
-    />
-    <ListView
-        android:id="@+id/helpfulP_listview"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <EditText
+        android:id="@+id/edit_searchfood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
+        android:textSize="25dp"
+        android:hint="Search any food"
+        />
+    <Button
+        android:id="@+id/search_food_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="search"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        />
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/recyclerviewid"/>
+    </LinearLayout>
 </LinearLayout>

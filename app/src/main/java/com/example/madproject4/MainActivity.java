@@ -89,20 +89,20 @@ public class MainActivity extends BaseActivity {
                         fragmentTag = "takePic";
 
                         break;
-                    case R.id.nav_helpful :
+                    case R.id.nav_search_food :
                         fragment = new SafestProducts();
                         fragmentTag = "help";
 
                         break;
-                    case R.id.nav_send :
+                    case R.id.nav_history :
                         fragment = new SendEmail();
-                        fragmentTag = "send";
+                        fragmentTag = "recent";
 
                         break;
-                    case R.id.nav_share :
-                        fragment = new ShareApp();
-                        fragmentTag = "share";
-                        break;
+//                    case R.id.nav_share :
+//                        fragment = new ShareApp();
+//                        fragmentTag = "share";
+//                        break;
                 }
                 if(fragment!=null) {
                     addNewFragment(fragment, fragmentTag);

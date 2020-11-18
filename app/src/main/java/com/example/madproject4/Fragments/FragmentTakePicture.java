@@ -108,7 +108,6 @@ public class FragmentTakePicture extends Fragment {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "NewPic");
         values.put(MediaStore.Images.Media.DESCRIPTION, "Image To Text");
-
         image_uri = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
 //        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -153,6 +152,7 @@ public class FragmentTakePicture extends Fragment {
                 imageView.setImageURI(resultUri);
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
+
                 TextRecognizer recognizer = new TextRecognizer.Builder(getActivity().getApplicationContext()).build();
                 if (!recognizer.isOperational()) {
                     //Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
@@ -166,6 +166,11 @@ public class FragmentTakePicture extends Fragment {
                     }
                     String temp = "";
                     Log.d("string buider ", "onActivityResult: " + sb.length());
+                    if(itemsArraylist.size() > 0)
+                    {
+
+                        itemsArraylist.clear();
+                    }
 
                     for (int i = 0; i < sb.length(); i++) {
 
@@ -202,7 +207,7 @@ public class FragmentTakePicture extends Fragment {
                         }
 
                     }
-                    itemsArraylist.add("last");
+
 
                     for (int i = 0; i < itemsArraylist.size(); i++) {
                         Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));

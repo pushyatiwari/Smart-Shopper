@@ -43,7 +43,7 @@ public class CaptureResult extends BaseActivity {
            mTitle[i] = title;
             while (res.moveToNext()) {
 
-                     mdesc[i] = res.getString(2).substring(0,20);
+                     mdesc[i] = res.getString(2).substring(0,50) + "...";
                       mimages[i] = res.getString(6);
                       break;
 
