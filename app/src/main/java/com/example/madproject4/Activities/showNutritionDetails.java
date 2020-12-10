@@ -2,8 +2,11 @@ package com.example.madproject4.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +28,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class showNutritionDetails extends AppCompatActivity {
+public class showNutritionDetails extends BaseActivity {
 //    <!--    "nf_calories": 570,-->
 //<!--    "nf_total_fat": 29,-->
 //<!--    "nf_saturated_fat": 12,-->
@@ -36,7 +39,8 @@ public class showNutritionDetails extends AppCompatActivity {
 //<!--    "nf_sugars": 11,-->
 //<!--    "nf_protein": 21,-->
 //<!--    "nf_potassium": null,-->
-     TextView caltxt, fat_txt, sfat_txt,chol_txt,sod_txt,carb_txt,diber_txt,sugars_txt,protein_txt,pott_txt;
+     TextView caltxt, fat_txt, sfat_txt,chol_txt,sod_txt,carb_txt,diber_txt,sugars_txt,protein_txt,pott_txt
+        , food_api_title;
     String base_url = "https://trackapi.nutritionix.com/v2/search/item?nix_item_id=";
     private RequestQueue requestQueue;
 
@@ -45,6 +49,7 @@ public class showNutritionDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_nutrition_details);
         String n_id = getIntent().getStringExtra("nix_id");
+        String food_nix_name = getIntent().getStringExtra("nix_name");
         caltxt = (TextView) findViewById(R.id.cal);
         fat_txt = (TextView) findViewById(R.id.fat);
         sfat_txt = (TextView) findViewById(R.id.sat_fat);
@@ -55,6 +60,8 @@ public class showNutritionDetails extends AppCompatActivity {
         sugars_txt = (TextView) findViewById(R.id.sugar);
         protein_txt = (TextView) findViewById(R.id.protein);
         pott_txt = (TextView) findViewById(R.id.potassium);
+        food_api_title = (TextView) findViewById(R.id.food_api_title);
+        food_api_title.setText(food_nix_name);
         jsonrequest(base_url+n_id);
 
     }
@@ -80,7 +87,7 @@ public class showNutritionDetails extends AppCompatActivity {
                         String pt = jsonObject.getString("nf_protein");
                         String pts = jsonObject.getString("nf_potassium");
 
-                        cal = cal + "mg";
+                        cal = cal + "kcal";
                         tf = tf + "g";
                         sf = sf + "g";
                         chl = chl + "mg";
@@ -141,5 +148,9 @@ public class showNutritionDetails extends AppCompatActivity {
         requestQueue.add(req);
 
 
+    }
+
+    public void showDailyRecommendedValues(View view) {
+       startActivity(new Intent(showNutritionDetails.this, show_daily_recommended_values.class));
     }
 }

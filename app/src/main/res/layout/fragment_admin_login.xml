@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.AdminLogin">
+
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/login_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+
+        android:text="LOGIN" />
+    <Button
+        android:id="@+id/reg_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="Don't have an account? Register"
+        android:ems="20"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/log_regcontainer"
+        android:background="@color/lightest_blue"
+
+        >
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

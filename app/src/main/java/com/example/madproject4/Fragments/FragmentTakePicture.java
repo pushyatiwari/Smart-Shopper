@@ -29,10 +29,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.madproject4.Activities.CaptureResult;
 import com.example.madproject4.Database.DatabaseHelper;
+import com.example.madproject4.Model.Ingredients;
 import com.example.madproject4.R;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -46,12 +52,14 @@ public class FragmentTakePicture extends Fragment {
     ImageView imageView;
 
     private static final int CAMERA_REQUEST_CODE = 100;
-    DatabaseHelper myDb;
+   // DatabaseHelper myDb;
     String cameraPermission[];
     String storagePermission[];
     Uri image_uri;
-    ArrayList<String> itemsArraylist;
-
+   public static ArrayList<Ingredients> itemsArraylist;
+    DatabaseReference fb_ing;
+     String finalTemp ;
+    final ArrayList<Ingredients> tempData = new ArrayList<>();
     public FragmentTakePicture() {
 
     }
@@ -62,7 +70,8 @@ public class FragmentTakePicture extends Fragment {
         view = inflater.inflate(R.layout.takepicture_fragment, container, false);
         cameraPermission = new String[]{Manifest.permission.CAMERA};
         imageView = (ImageView) view.findViewById(R.id.imageView);
-        myDb = new DatabaseHelper(getActivity());
+      //  myDb = new DatabaseHelper(getActivity());
+        fb_ing = FirebaseDatabase.getInstance().getReference().child("ingredients");
         cameraPermission = new String[]{Manifest.permission.CAMERA,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE};
         itemsArraylist = new ArrayList<>();
@@ -87,6 +96,29 @@ public class FragmentTakePicture extends Fragment {
                 }
             }
         });
+
+        fb_ing.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+
+                   Ingredients ingredients = ds.getValue(Ingredients.class);
+                  //Log.d("fetched data", "onDataChange: "+ds.getValue()+ "..,");
+                         //  finalTemp.toLowerCase() );
+                 tempData.add(ingredients);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), "cancelled", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         return view;
     }
 
@@ -164,16 +196,16 @@ public class FragmentTakePicture extends Fragment {
                         TextBlock myItem = items.valueAt(i);
                         sb.append(myItem.getValue());
                     }
-                    String temp = "";
+
                     Log.d("string buider ", "onActivityResult: " + sb.length());
                     if(itemsArraylist.size() > 0)
                     {
 
                         itemsArraylist.clear();
                     }
-
+                    String temp = "";
                     for (int i = 0; i < sb.length(); i++) {
-
+                        finalTemp = temp;
                         char ch = sb.charAt(i);
                         if (ch != ',') {
                             temp += ch;
@@ -182,42 +214,49 @@ public class FragmentTakePicture extends Fragment {
                                 temp = "";
                                 continue;
                                }
+                            finalTemp = temp;
                         } else {
+                            finalTemp = temp;
                             //if that similar item exists in sql, take the title and push to arraylist.
-                            Cursor res = myDb.getAllData();
-                            if (res.getCount() == 0) {
-                                // show message
-                                showMessage("Error", "Nothing found");
-                                return;
+//                            Cursor res = myDb.getAllData();
+//                            if (res.getCount() == 0) {
+//                                // show message
+//                                showMessage("Error", "Nothing found");
+//                                return;
+//                            }
+
+//                            while (res.moveToNext()) {
+//
+//                                String title = res.getString(1);
+//                                Log.d("tempSQL", "onActivityResult: "+title+" , temp - "+temp);
+//                                if(temp.toLowerCase().contains(title.toLowerCase())){
+//                                    itemsArraylist.add(title);
+//                                    break;
+//                                }
+//                             }
+
+                            for (int j = 0; j < tempData.size(); j++) {
+                                // Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));
+                                if(temp.toLowerCase().contains(tempData.get(j).getTitle().toLowerCase()))
+                                    itemsArraylist.add(tempData.get(j));
+
+
                             }
-
-                            while (res.moveToNext()) {
-
-                                String title = res.getString(1);
-                                Log.d("tempSQL", "onActivityResult: "+title+" , temp - "+temp);
-                                if(temp.toLowerCase().contains(title.toLowerCase())){
-                                    itemsArraylist.add(title);
-                                    break;
-                                }
-                             }
-                            
-
                             Log.d("temp val", "onActivityResult: "+ temp);
                             temp = "";
                         }
 
-                    }
-
-
-                    for (int i = 0; i < itemsArraylist.size(); i++) {
-                        Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));
 
                     }
 
+                    for (int j = 0; j < itemsArraylist.size(); j++) {
+                        Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(j).getTitle());
+
+                    }
                     {
 
                         Intent intent = new Intent(getActivity(), CaptureResult.class);
-                        intent.putExtra("itemsArray", itemsArraylist);
+                      //  intent.putExtra("itemsArray", itemsArraylist);
                         startActivity(intent);
 
                     }

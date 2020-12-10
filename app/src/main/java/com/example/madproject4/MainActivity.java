@@ -2,7 +2,6 @@ package com.example.madproject4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -13,22 +12,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.madproject4.Activities.Aboutus;
 import com.example.madproject4.Activities.BaseActivity;
-import com.example.madproject4.Activities.ContactUs;
-import com.example.madproject4.Activities.Guide;
-import com.example.madproject4.Activities.ShowDetailsCapture;
 import com.example.madproject4.Database.DatabaseHelper;
-import com.example.madproject4.Fragments.FragmentTakePicContainer;
+import com.example.madproject4.Fragments.AdminLogin;
 import com.example.madproject4.Fragments.FragmentTakePicture;
 import com.example.madproject4.Fragments.HomeFragment;
-import com.example.madproject4.Fragments.SafestProducts;
-import com.example.madproject4.Fragments.SendEmail;
-import com.example.madproject4.Fragments.ShareApp;
+import com.example.madproject4.Fragments.SearchFoodByNutritionix;
+import com.example.madproject4.Fragments.RecentSearch;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -38,6 +30,7 @@ public class MainActivity extends BaseActivity {
     private DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
+    //static ArrayList<Ingredients> itemsArraylist;
     String lastFragmentTag = null;
     boolean showingFirstFragment = true;
     private TabLayout tabLayout;
@@ -90,19 +83,19 @@ public class MainActivity extends BaseActivity {
 
                         break;
                     case R.id.nav_search_food :
-                        fragment = new SafestProducts();
+                        fragment = new SearchFoodByNutritionix();
                         fragmentTag = "help";
 
                         break;
                     case R.id.nav_history :
-                        fragment = new SendEmail();
+                        fragment = new RecentSearch();
                         fragmentTag = "recent";
 
                         break;
-//                    case R.id.nav_share :
-//                        fragment = new ShareApp();
-//                        fragmentTag = "share";
-//                        break;
+                    case R.id.nav_share :
+                        fragment = new AdminLogin();
+                        fragmentTag = "admin";
+                        break;
                 }
                 if(fragment!=null) {
                     addNewFragment(fragment, fragmentTag);

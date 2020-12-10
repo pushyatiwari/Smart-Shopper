@@ -48,7 +48,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SafestProducts extends Fragment  implements RecyclerViewAdapter.onFoodListener {
+public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAdapter.onFoodListener {
 
 
     private View view;
@@ -60,7 +60,7 @@ public class SafestProducts extends Fragment  implements RecyclerViewAdapter.onF
     private EditText search_edt;
     private Button search_food;
     String search_query;
-    public SafestProducts() {
+    public SearchFoodByNutritionix() {
         // Required empty public constructor
     }
 
@@ -171,6 +171,7 @@ public class SafestProducts extends Fragment  implements RecyclerViewAdapter.onF
         Food p = lstAnime.get(position);
         Intent i = new Intent(getActivity(), showNutritionDetails.class);
         i.putExtra("nix_id",p.getNix_item_id());
+        i.putExtra("nix_name",p.getName());
         startActivity(i);
             Log.d("clicked: ", "onClick: " + p.getName()+
                  " -- "+p.getBrand_name() + "id" + p.getNix_item_id());

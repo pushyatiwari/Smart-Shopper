@@ -7,23 +7,12 @@
     android:layout_gravity="center"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Fragments.SendEmail"
+    tools:context=".Fragments.RecentSearch"
     >
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
+
+    <ListView
+        android:id="@+id/list_rs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Product" />
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:text="share product"
-        android:textColor="@color/tabbackground" />
-
-
+        android:layout_height="match_parent" />
 </LinearLayout>

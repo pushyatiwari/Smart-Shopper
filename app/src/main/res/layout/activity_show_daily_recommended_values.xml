@@ -1,281 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.showNutritionDetails">
-<!--    "nf_calories": 570,-->
-<!--    "nf_total_fat": 29,-->
-<!--    "nf_saturated_fat": 12,-->
-<!--    "nf_cholesterol": 45,-->
-<!--    "nf_sodium": 1680,-->
-<!--    "nf_total_carbohydrate": 61,-->
-<!--    "nf_dietary_fiber": 2,-->
-<!--    "nf_sugars": 11,-->
-<!--    "nf_protein": 21,-->
-<!--    "nf_potassium": null,-->
-
+    tools:context=".Activities.show_daily_recommended_values">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="188dp"
-        android:layout_marginBottom="669dp"
-        android:layout_alignBottom="@+id/food_api_title"
-        android:text="Nutritional Information"
+        android:text="Nutrition: Daily Recommended Values"
         android:textColor="@color/textColor"
-        android:textSize="20dp" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="172dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="-12dp"
-        android:layout_marginBottom="482dp"
-        android:src="@drawable/foodone" />
-
-    <TextView
-        android:id="@+id/food_api_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:hint="Title"
-        android:textColor="@color/textColor"
-        android:text="Nutritional Information"
-       />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="474dp"
-        android:background="#c0c0c0" />
-
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
     <TableLayout
-        android:layout_width="318dp"
-        android:layout_height="341dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="122dp">
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Calories"
+                android:textSize="20dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                android:text="Calories"
+                />
             <TextView
-                android:id="@+id/cal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="2000 kcal"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp"
 
                 />
 
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Total Fat"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/fat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="60 g"
+                android:textSize="20dp"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
 
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Saturated Fat"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/sat_fat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="19 g"
+                android:textSize="20dp"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
 
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Cholestrol"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/cholestrol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:textSize="20dp"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
 
 
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Sodium"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/sodium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="2300 mg"
+                android:textSize="20dp"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
 
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Total Carb"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/carbohydrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="325 g"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
 
         </TableRow>
-
         <TableRow>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Dietary Fiber"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/dietary_fibre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="30 g"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
         </TableRow>
-
         <TableRow>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Sugar"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/sugar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="25 g"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
         </TableRow>
-
         <TableRow>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
                 android:text="Protein"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                />
             <TextView
-                android:id="@+id/protein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="56 g"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Potassium"
+                android:textSize="20dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
+                android:text="Potassium"
+                />
             <TextView
-                android:id="@+id/potassium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="4100 g"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                />
 
         </TableRow>
 
 
     </TableLayout>
-
-    <Button
-        android:id="@+id/show_daily_recommended"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="end"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="19dp"
-        android:background="@color/colorPrimary"
-        android:ems="20"
-        android:onClick="showDailyRecommendedValues"
-        android:text="Show Daily Recommended Values"
-        android:textColor="@color/white" />
-
-
-</RelativeLayout>
+</LinearLayout>
