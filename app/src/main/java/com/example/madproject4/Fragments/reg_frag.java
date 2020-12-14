@@ -43,9 +43,9 @@ EditText reg_e, reg_p;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_reg_frag, container, false);
-        reg_e = (EditText) view.findViewById(R.id.reg_email);
-        reg_p = (EditText) view.findViewById(R.id.reg_password);
-        reg_btn = (Button) view.findViewById(R.id.reg_btn);
+        reg_e = view.findViewById(R.id.reg_email);
+        reg_p = view.findViewById(R.id.reg_password);
+        reg_btn = view.findViewById(R.id.reg_btn);
         auth = FirebaseAuth.getInstance();
 
         reg_btn.setOnClickListener(new View.OnClickListener() {

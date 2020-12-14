@@ -32,8 +32,8 @@ public class FragmentTakePicContainer extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_fragment_home_container, container, false);
         //
-        tabLayout = (TabLayout) view.findViewById(R.id.tabLayout_id);
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager_id);
+        tabLayout = view.findViewById(R.id.tabLayout_id);
+        viewPager = view.findViewById(R.id.viewpager_id);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(),0);
         adapter.AddFragment(new Home_base_Products(),"home");
         adapter.AddFragment(new FragmentTakePicture(),"");

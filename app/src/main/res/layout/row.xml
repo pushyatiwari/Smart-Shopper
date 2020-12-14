@@ -44,7 +44,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="#000000"
                         android:textFontWeight="@android:integer/config_longAnimTime"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
 

@@ -40,9 +40,9 @@ public class login_frag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_login_frag, container, false);
-        l_mail = (EditText) view.findViewById(R.id.l_email);
-        l_pass = (EditText) view.findViewById(R.id.l_password);
-        login_btn = (Button) view.findViewById(R.id.login_btn);
+        l_mail = view.findViewById(R.id.l_email);
+        l_pass = view.findViewById(R.id.l_password);
+        login_btn = view.findViewById(R.id.login_btn);
         auth = FirebaseAuth.getInstance();
 
         login_btn.setOnClickListener(new View.OnClickListener() {

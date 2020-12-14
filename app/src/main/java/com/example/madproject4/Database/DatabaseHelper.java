@@ -58,10 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_6,add);
         contentValues.put(COL_7,Imageurl);
         long result = db.insert(TABLE_NAME,null ,contentValues);
-        if(result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public Cursor getAllData() {
@@ -70,6 +67,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public void deleteAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("DELETE FROM "+TABLE_NAME,null);
+
+    }
     public Cursor getDataWith(String data) {
         SQLiteDatabase db = this.getWritableDatabase();
         //SELECT * FROM COMPANY WHERE ADDRESS  LIKE '%-%'

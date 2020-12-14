@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.show_daily_recommended_values"></activity>
+        <activity android:name=".Activities.showIndItemFromHistory" />
+        <activity android:name=".Activities.show_daily_recommended_values" />
         <activity android:name=".Activities.FirebaseIndividualIngredDetails" />
         <activity android:name=".Activities.AddDataFB" />
         <activity android:name=".Activities.showNutritionDetails" />

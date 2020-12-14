@@ -23,14 +23,14 @@ public class Home_base_Products extends Fragment {
     String url = "https://s.alicdn.com/@sc01/kf/HTB1IwrUd25G3KVjSZPxq6zI3XXag.jpg_300x300.jpg";
     String AluminiumSodiumsulfte = "https://5.imimg.com/data5/BP/AF/MY-26952425/textile-auxiliaries-chemical-500x500.jpg";
      String benzoateurl= "https://d37ky63zmmmzfj.cloudfront.net/production/itemimages/packed_food/sauces_ketchup/other_sauces/cookwell_sodiumbenzoate_25gm.jpg";
-    String mTitle[] = {"Calcium Acetate", "Aluminium sodium sulfate(E521)", "Benzoate",
+    String[] mTitle = {"Calcium Acetate", "Aluminium sodium sulfate(E521)", "Benzoate",
             "Amino acid", "Calcium Diglutamate",
             "Calcium Acetate", "Aluminium sodium sulfate(E521)", "Benzoate", "Amino acid", "Acetylated oxidized starch(E1451)"};
-    String mDescription[] = {"Substance is harmless...", "health affecting, found...",
+    String[] mDescription = {"Substance is harmless...", "health affecting, found...",
             "may cause asthma and irritation of the lungs...", "basic elements ...", "May cause adverse effects...",
             "Substance is harmless...", "health affecting, found...",
             "may cause asthma and irritation of the lungs...", "basic elements ...", "Thickener, emulsifier, added to food for babies..."};
-    String images[] = {acetate,AluminiumSodiumsulfte,benzoateurl,acetate,url,acetate,AluminiumSodiumsulfte,benzoateurl,acetate,url };
+    String[] images = {acetate, AluminiumSodiumsulfte, benzoateurl, acetate, url, acetate, AluminiumSodiumsulfte, benzoateurl, acetate, url};
 
     public Home_base_Products() {
 

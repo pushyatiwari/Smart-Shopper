@@ -13,20 +13,30 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.madproject4.Activities.BaseActivity;
 import com.example.madproject4.Database.DatabaseHelper;
+import com.example.madproject4.Database.DatabaseHistory;
 import com.example.madproject4.Fragments.AdminLogin;
 import com.example.madproject4.Fragments.FragmentTakePicture;
 import com.example.madproject4.Fragments.HomeFragment;
 import com.example.madproject4.Fragments.SearchFoodByNutritionix;
 import com.example.madproject4.Fragments.RecentSearch;
+import com.example.madproject4.Model.Ingredients;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
 
-
+    public final static ArrayList<Ingredients> tempData = new ArrayList<>();
     private DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
@@ -35,7 +45,11 @@ public class MainActivity extends BaseActivity {
     boolean showingFirstFragment = true;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    DatabaseReference fb_ing;
+
+
     DatabaseHelper d ;
+   // DatabaseHistory dbh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,18 +60,36 @@ public class MainActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer);
-
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+        fb_ing = FirebaseDatabase.getInstance().getReference().child("ingredients");
       //  this.deleteDatabase("Ingredients2.db");
         // d = new DatabaseHelper(this);
        HomeFragment fragmentTakePicContainer = new HomeFragment();
        loadFragment(fragmentTakePicContainer);
+      // dbh =  new DatabaseHistory(this);
 
+        fb_ing.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
 
+                    Ingredients ingredients = ds.getValue(Ingredients.class);
+                    //Log.d("fetched data", "onDataChange: "+ds.getValue()+ "..,");
+                    //  finalTemp.toLowerCase() );
+                    tempData.add(ingredients);
+                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "cancelled", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //navView inflate
         navigationView = findViewById(R.id.nav_view);
@@ -78,9 +110,13 @@ public class MainActivity extends BaseActivity {
                     finish();
                     break;
                     case R.id.nav_takePicture :
-                        fragment = new FragmentTakePicture();
-                        fragmentTag = "takePic";
-
+                        if(tempData.size() > 0) {
+                            fragment = new FragmentTakePicture();
+                            fragmentTag = "takePic";
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "loading...", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                     case R.id.nav_search_food :
                         fragment = new SearchFoodByNutritionix();
@@ -88,8 +124,13 @@ public class MainActivity extends BaseActivity {
 
                         break;
                     case R.id.nav_history :
-                        fragment = new RecentSearch();
-                        fragmentTag = "recent";
+                        if(tempData.size() > 0) {
+                            fragment = new RecentSearch();
+                            fragmentTag = "recent";
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "loading...", Toast.LENGTH_SHORT).show();
+                        }
 
                         break;
                     case R.id.nav_share :
@@ -106,6 +147,10 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+
+
+
 
     }
 

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.madproject4.Fragments.FragmentTakePicture;
 import com.example.madproject4.MainActivity;
 import com.example.madproject4.R;
 
@@ -24,7 +25,16 @@ public class BaseActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.home_menu:
+                try{
+                FragmentTakePicture.itemsArraylist.clear();
+                MainActivity.tempData.clear();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
                 Intent intent_home = new Intent(BaseActivity.this, MainActivity.class);
+                intent_home.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent_home);
                 finish();
                 return true;

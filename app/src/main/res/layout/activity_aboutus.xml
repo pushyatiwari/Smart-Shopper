@@ -14,22 +14,28 @@
         android:layout_margin="12dp"
         android:textColor="#000000"
         android:textSize="30dp"
-        android:text="ABOUT US"
+        android:text="SMART SHOPPER"
         />
     <View
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
+
+    <ImageView
+        android:id="@+id/au_iv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_takepic" />
+
     <TextView
         android:id="@+id/txtabout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
         android:textColor="#000000"
-        android:textSize="30dp"
-        android:hint="about us details"
-         />
+        android:textSize="15dp"
+        android:hint="about us details"/>
 
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.madproject4.Database.DatabaseHelper;
+import com.example.madproject4.Database.DatabaseHistory;
 import com.example.madproject4.Fragments.FragmentTakePicture;
 import com.example.madproject4.Model.Ingredients;
 import com.example.madproject4.R;
@@ -21,17 +22,19 @@ public class FirebaseIndividualIngredDetails extends BaseActivity {
     TextView title_tv, desc_tv, effects_tv;
     ImageView imageView_title, imageView_harmful;
     Ingredients tempIng;
-    DatabaseHelper dbHelper;
+//    DatabaseHelper dbHelper;
+    DatabaseHistory dbhis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase_individual_ingred_details);
-        title_tv = (TextView) findViewById(R.id.title_show_fb);
-        desc_tv = (TextView) findViewById(R.id.desc_fb);
-        effects_tv = (TextView) findViewById(R.id.disease_fb);
-        imageView_title = (ImageView) findViewById(R.id.image_title_show_fb);
-        imageView_harmful = (ImageView) findViewById(R.id.harmful_image_fb);
-        dbHelper = new DatabaseHelper(this);
+        title_tv = findViewById(R.id.title_show_fb);
+        desc_tv = findViewById(R.id.desc_fb);
+        effects_tv = findViewById(R.id.disease_fb);
+        imageView_title = findViewById(R.id.image_title_show_fb);
+        imageView_harmful = findViewById(R.id.harmful_image_fb);
+       // dbHelper = new DatabaseHelper(this);
+        dbhis = new DatabaseHistory(this);
         title = getIntent().getStringExtra("title");
         int pos = getIntent().getIntExtra("index",-1);
         if(pos == -1)
@@ -58,9 +61,25 @@ public class FirebaseIndividualIngredDetails extends BaseActivity {
                 imageView_harmful.setImageResource(R.drawable.ic_safe);
                 imageView_harmful.setVisibility(View.VISIBLE);
             }
-            dbHelper.insertData(title,title,desc,effects,harmful,added,imageUrl);
+         //   dbHelper.insertData(title,title,desc,effects,harmful,added,imageUrl);
 
         }
+        int count = 1;
+        int maxcount_dbhis = dbhis.getMax();
+        if(maxcount_dbhis != -1)
+        {
+            count = maxcount_dbhis;
+        }
+        boolean isInserted = dbhis.insertData(
+                title.toLowerCase().replace(" ", "_"),
+                title,
+                count+1
+ );
+//        if (isInserted == true)
+//            Toast.makeText(FirebaseIndividualIngredDetails.this, "Data Inserted", Toast.LENGTH_LONG).show();
+//        else
+//            Toast.makeText(FirebaseIndividualIngredDetails.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+
 
 
     }

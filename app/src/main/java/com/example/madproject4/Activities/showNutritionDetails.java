@@ -50,17 +50,17 @@ public class showNutritionDetails extends BaseActivity {
         setContentView(R.layout.activity_show_nutrition_details);
         String n_id = getIntent().getStringExtra("nix_id");
         String food_nix_name = getIntent().getStringExtra("nix_name");
-        caltxt = (TextView) findViewById(R.id.cal);
-        fat_txt = (TextView) findViewById(R.id.fat);
-        sfat_txt = (TextView) findViewById(R.id.sat_fat);
-        chol_txt = (TextView) findViewById(R.id.cholestrol);
-        sod_txt = (TextView) findViewById(R.id.sodium);
-        carb_txt = (TextView) findViewById(R.id.carbohydrate);
-        diber_txt = (TextView) findViewById(R.id.dietary_fibre);
-        sugars_txt = (TextView) findViewById(R.id.sugar);
-        protein_txt = (TextView) findViewById(R.id.protein);
-        pott_txt = (TextView) findViewById(R.id.potassium);
-        food_api_title = (TextView) findViewById(R.id.food_api_title);
+        caltxt = findViewById(R.id.cal);
+        fat_txt = findViewById(R.id.fat);
+        sfat_txt = findViewById(R.id.sat_fat);
+        chol_txt = findViewById(R.id.cholestrol);
+        sod_txt = findViewById(R.id.sodium);
+        carb_txt = findViewById(R.id.carbohydrate);
+        diber_txt = findViewById(R.id.dietary_fibre);
+        sugars_txt = findViewById(R.id.sugar);
+        protein_txt = findViewById(R.id.protein);
+        pott_txt = findViewById(R.id.potassium);
+        food_api_title = findViewById(R.id.food_api_title);
         food_api_title.setText(food_nix_name);
         jsonrequest(base_url+n_id);
 

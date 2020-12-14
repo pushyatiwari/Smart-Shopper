@@ -25,11 +25,11 @@ import java.net.MalformedURLException;
 public class MyAdapter extends ArrayAdapter<String> {
 
     Context context;
-    String rTitle[];
-    String rDescription[];
-    String rImgs[];
+    String[] rTitle;
+    String[] rDescription;
+    String[] rImgs;
 
-    public MyAdapter(Context c, String title[], String description[], String imgs[]) {
+    public MyAdapter(Context c, String[] title, String[] description, String[] imgs) {
         super(c, R.layout.row, R.id.listItemText, title);
         this.context = c;
         this.rTitle = title;

@@ -28,13 +28,12 @@ import java.util.ArrayList;
 public class CaptureResult extends BaseActivity {
     ArrayList<Ingredients> itemsArray;
      ListView itemlistview;
-   // DatabaseHelper myDb;
-   String mdesc[];
-    String mimages[];
-    String mTitle[] ;
+    // DatabaseHelper myDb;
+    String[] mdesc;
+    String[] mimages;
+    String[] mTitle;
 
 
-    DatabaseReference fb_ing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +42,9 @@ public class CaptureResult extends BaseActivity {
        // myDb = new DatabaseHelper(this);
         itemlistview = findViewById(R.id.captureListView);
         //    itemsArray = getIntent().getSerializableExtra("itemsArray");
-        fb_ing = FirebaseDatabase.getInstance().getReference().child("ingredients");
 
         itemsArray = FragmentTakePicture.itemsArraylist;
+
         int size = itemsArray.size();
          mTitle = new String[size];
       mdesc = new String[size];
@@ -91,11 +90,10 @@ public class CaptureResult extends BaseActivity {
             });
 
 
-
-
     }
 
-
-
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 }

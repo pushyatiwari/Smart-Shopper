@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.madproject4.Activities.CaptureResult;
 import com.example.madproject4.Database.DatabaseHelper;
+import com.example.madproject4.MainActivity;
 import com.example.madproject4.Model.Ingredients;
 import com.example.madproject4.R;
 import com.google.android.gms.vision.Frame;
@@ -52,14 +53,12 @@ public class FragmentTakePicture extends Fragment {
     ImageView imageView;
 
     private static final int CAMERA_REQUEST_CODE = 100;
-   // DatabaseHelper myDb;
-    String cameraPermission[];
-    String storagePermission[];
+    // DatabaseHelper myDb;
+    String[] cameraPermission;
+    String[] storagePermission;
     Uri image_uri;
    public static ArrayList<Ingredients> itemsArraylist;
-    DatabaseReference fb_ing;
      String finalTemp ;
-    final ArrayList<Ingredients> tempData = new ArrayList<>();
     public FragmentTakePicture() {
 
     }
@@ -69,17 +68,16 @@ public class FragmentTakePicture extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.takepicture_fragment, container, false);
         cameraPermission = new String[]{Manifest.permission.CAMERA};
-        imageView = (ImageView) view.findViewById(R.id.imageView);
+        imageView = view.findViewById(R.id.imageView);
       //  myDb = new DatabaseHelper(getActivity());
-        fb_ing = FirebaseDatabase.getInstance().getReference().child("ingredients");
+        itemsArraylist = new ArrayList<>();
         cameraPermission = new String[]{Manifest.permission.CAMERA,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        itemsArraylist = new ArrayList<>();
+
         storagePermission = new String[]{
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
-
-        final Button button = (Button) view.findViewById(R.id.capture);
+        final Button button = view.findViewById(R.id.capture);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -97,26 +95,6 @@ public class FragmentTakePicture extends Fragment {
             }
         });
 
-        fb_ing.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren())
-                {
-
-                   Ingredients ingredients = ds.getValue(Ingredients.class);
-                  //Log.d("fetched data", "onDataChange: "+ds.getValue()+ "..,");
-                         //  finalTemp.toLowerCase() );
-                 tempData.add(ingredients);
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "cancelled", Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
         return view;
@@ -186,6 +164,7 @@ public class FragmentTakePicture extends Fragment {
                 Bitmap bitmap = bitmapDrawable.getBitmap();
 
                 TextRecognizer recognizer = new TextRecognizer.Builder(getActivity().getApplicationContext()).build();
+                 itemsArraylist.clear();
                 if (!recognizer.isOperational()) {
                     //Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
                 } else {
@@ -203,6 +182,7 @@ public class FragmentTakePicture extends Fragment {
 
                         itemsArraylist.clear();
                     }
+                    itemsArraylist.clear();
                     String temp = "";
                     for (int i = 0; i < sb.length(); i++) {
                         finalTemp = temp;
@@ -235,10 +215,10 @@ public class FragmentTakePicture extends Fragment {
 //                                }
 //                             }
 
-                            for (int j = 0; j < tempData.size(); j++) {
+                            for (int j = 0; j < MainActivity.tempData.size(); j++) {
                                 // Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));
-                                if(temp.toLowerCase().contains(tempData.get(j).getTitle().toLowerCase()))
-                                    itemsArraylist.add(tempData.get(j));
+                                if(temp.toLowerCase().contains(MainActivity.tempData.get(j).getTitle().toLowerCase()))
+                                    itemsArraylist.add(MainActivity.tempData.get(j));
 
 
                             }
@@ -256,7 +236,6 @@ public class FragmentTakePicture extends Fragment {
                     {
 
                         Intent intent = new Intent(getActivity(), CaptureResult.class);
-                      //  intent.putExtra("itemsArray", itemsArraylist);
                         startActivity(intent);
 
                     }

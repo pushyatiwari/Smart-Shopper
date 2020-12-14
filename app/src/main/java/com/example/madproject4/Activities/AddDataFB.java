@@ -22,15 +22,15 @@ public class AddDataFB extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data_fb);
-        id = (EditText) findViewById(R.id.id_fb);
-        title = (EditText) findViewById(R.id.title_fb);
-        desc = (EditText) findViewById(R.id.desc_fb);
-        effects = (EditText) findViewById(R.id.effects_fb);
-        harmful = (EditText) findViewById(R.id.harmful_fb);
-        addedin = (EditText) findViewById(R.id.addedin_fb);
-        imageurl = (EditText) findViewById(R.id.imageurl_fb);
-        btnAddData = (Button) findViewById(R.id.insert_dbbtn_fb);
-        btnviewAll = (Button) findViewById(R.id.view_dbbtn_fb);
+        id = findViewById(R.id.id_fb);
+        title = findViewById(R.id.title_fb);
+        desc = findViewById(R.id.desc_fb);
+        effects = findViewById(R.id.effects_fb);
+        harmful = findViewById(R.id.harmful_fb);
+        addedin = findViewById(R.id.addedin_fb);
+        imageurl = findViewById(R.id.imageurl_fb);
+        btnAddData = findViewById(R.id.insert_dbbtn_fb);
+        btnviewAll = findViewById(R.id.view_dbbtn_fb);
         ingred_db = FirebaseDatabase.getInstance().getReference("ingredients");
 
         btnAddData.setOnClickListener(new View.OnClickListener() {

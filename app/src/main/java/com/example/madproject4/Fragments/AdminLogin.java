@@ -33,8 +33,8 @@ Button reg, log, addfb;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_admin_login, container, false);
-        reg = (Button) view.findViewById(R.id.reg_admin);
-        log = (Button) view.findViewById(R.id.login_admin);
+        reg = view.findViewById(R.id.reg_admin);
+        log = view.findViewById(R.id.login_admin);
        // addfb = (Button) view.findViewById(R.id.adddata_fb);
 
         reg.setOnClickListener(new View.OnClickListener() {

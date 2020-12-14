@@ -35,10 +35,11 @@ String imgUrl = "https://cdn.trendhunterstatic.com/thumbs/smart-shopping-cart.jp
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_homefragment_base, container, false);
 
-        TextView txt = (TextView) view.findViewById(R.id.txthome_guide);
+        TextView txt = view.findViewById(R.id.txthome_guide);
         txt.setText(guide);
-        Button btn = (Button) view.findViewById(R.id.home_takepic_btn);
-        ImageView imageView = (ImageView) view.findViewById(R.id.home_pic);
+        Button btn = view.findViewById(R.id.home_takepic_btn);
+        Button search_btn = view.findViewById(R.id.home_takepic_searchfood);
+        ImageView imageView = view.findViewById(R.id.home_pic);
 
 //        Picasso.with(getActivity())// Context
 //                .load(imgUrl).fit().centerCrop() // URL or file
@@ -58,6 +59,17 @@ String imgUrl = "https://cdn.trendhunterstatic.com/thumbs/smart-shopping-cart.jp
             }
         });
         //android.R.anim.slide_in_left
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchFoodByNutritionix searchFoodByNutritionix = new SearchFoodByNutritionix();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null)
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                        .replace(R.id.fragment_container_home, searchFoodByNutritionix)
+                        .commit();
+
+            }
+        });
 
 
         return view;

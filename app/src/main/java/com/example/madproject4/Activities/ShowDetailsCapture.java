@@ -31,11 +31,11 @@ public class ShowDetailsCapture extends BaseActivity {
 
 
         db = new DatabaseHelper(this);
-        title_tv = (TextView) findViewById(R.id.title_show);
-        desc_tv = (TextView) findViewById(R.id.desc);
-        effects_tv = (TextView) findViewById(R.id.disease);
-        imageView_title = (ImageView) findViewById(R.id.image_title_show);
-        imageView_harmful = (ImageView) findViewById(R.id.harmful_image);
+        title_tv = findViewById(R.id.title_show);
+        desc_tv = findViewById(R.id.desc);
+        effects_tv = findViewById(R.id.disease);
+        imageView_title = findViewById(R.id.image_title_show);
+        imageView_harmful = findViewById(R.id.harmful_image);
         title = getIntent().getStringExtra("title");
         Cursor res = db.getData(title);
 

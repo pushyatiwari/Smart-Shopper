@@ -25,15 +25,15 @@ public class AddDataToDatabase extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data_to_database);
         myDb = new DatabaseHelper(this);
-        id = (EditText) findViewById(R.id.id);
-        title = (EditText) findViewById(R.id.title);
-        desc = (EditText) findViewById(R.id.desc);
-        effects = (EditText) findViewById(R.id.effects);
-        harmful = (EditText) findViewById(R.id.harmful);
-        addedin = (EditText) findViewById(R.id.addedin);
-        imageurl = (EditText) findViewById(R.id.imageurl);
-        btnAddData = (Button) findViewById(R.id.insert_dbbtn);
-        btnviewAll = (Button) findViewById(R.id.view_dbbtn);
+        id = findViewById(R.id.id);
+        title = findViewById(R.id.title);
+        desc = findViewById(R.id.desc);
+        effects = findViewById(R.id.effects);
+        harmful = findViewById(R.id.harmful);
+        addedin = findViewById(R.id.addedin);
+        imageurl = findViewById(R.id.imageurl);
+        btnAddData = findViewById(R.id.insert_dbbtn);
+        btnviewAll = findViewById(R.id.view_dbbtn);
 
         AddData();
         viewAll();
