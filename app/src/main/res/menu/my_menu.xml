@@ -23,10 +23,10 @@
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_send"
             android:title="Recent search" />
-        <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_share"
-            android:title="Admin" />
+<!--        <item-->
+<!--            android:id="@+id/nav_share"-->
+<!--            android:icon="@drawable/ic_share"-->
+<!--            android:title="Admin" />-->
 
     </group>
     </item>

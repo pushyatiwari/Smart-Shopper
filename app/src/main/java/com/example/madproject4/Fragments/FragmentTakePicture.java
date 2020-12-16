@@ -44,6 +44,8 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -115,16 +117,7 @@ public class FragmentTakePicture extends Fragment {
     }
 
     private void pickCamera() {
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, "NewPic");
-        values.put(MediaStore.Images.Media.DESCRIPTION, "Image To Text");
-        image_uri = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-
-//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//       // cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,image_uri);
-//        startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
-
-        CropImage.activity()
+         CropImage.activity()
                 .start(getContext(), this);
     }
 
@@ -162,7 +155,8 @@ public class FragmentTakePicture extends Fragment {
                 imageView.setImageURI(resultUri);
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
-
+                Set<String> hash_Set
+                        = new HashSet<String>();
                 TextRecognizer recognizer = new TextRecognizer.Builder(getActivity().getApplicationContext()).build();
                  itemsArraylist.clear();
                 if (!recognizer.isOperational()) {
@@ -218,7 +212,11 @@ public class FragmentTakePicture extends Fragment {
                             for (int j = 0; j < MainActivity.tempData.size(); j++) {
                                 // Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));
                                 if(temp.toLowerCase().contains(MainActivity.tempData.get(j).getTitle().toLowerCase()))
-                                    itemsArraylist.add(MainActivity.tempData.get(j));
+                                    if(!hash_Set.contains(MainActivity.tempData.get(j).getTitle()))
+                                    {
+                                        hash_Set.add(MainActivity.tempData.get(j).getTitle());
+                                        itemsArraylist.add(MainActivity.tempData.get(j));
+                                    }
 
 
                             }

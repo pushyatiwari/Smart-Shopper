@@ -44,23 +44,28 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:weightSum="2"
+    android:elevation="25dp"
     >
         <Button
             android:id="@+id/home_takepic_btn"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:textColor="@color/white"
-            android:background="@color/colorPrimary"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_button"
             android:layout_weight="1"
             android:text="Scan ingredients" />
     <Button
         android:id="@+id/home_takepic_searchfood"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="100dp"
         android:textColor="@color/white"
-        android:background="@color/colorPrimary"
+        android:ems="10"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:layout_marginTop="5dp"
+        android:background="@drawable/custom_button"
         android:text="Search Food" />
 
 

@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AddDataFB extends BaseActivity {
     private EditText id, title, desc, effects, harmful, addedin, imageurl;
     private Button btnAddData;
-    Button btnviewAll;
+    Button btnclear;
     DatabaseReference ingred_db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +30,24 @@ public class AddDataFB extends BaseActivity {
         addedin = findViewById(R.id.addedin_fb);
         imageurl = findViewById(R.id.imageurl_fb);
         btnAddData = findViewById(R.id.insert_dbbtn_fb);
-        btnviewAll = findViewById(R.id.view_dbbtn_fb);
+        btnclear = findViewById(R.id.clear_fb);
         ingred_db = FirebaseDatabase.getInstance().getReference("ingredients");
 
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addIngredientstoFB();
+            }
+        });
+        btnclear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id.setText("");
+                title.setText("");
+                desc.setText("");
+                effects.setText("");
+                addedin.setText("");
+                imageurl.setText("");
             }
         });
 
@@ -58,4 +69,5 @@ public class AddDataFB extends BaseActivity {
         ingred_db.child(id_add).setValue(ingredients);
         Toast.makeText(this, "values set", Toast.LENGTH_SHORT).show();
     }
+
 }

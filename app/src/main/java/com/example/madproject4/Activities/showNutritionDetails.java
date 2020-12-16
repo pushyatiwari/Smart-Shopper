@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.madproject4.Model.Food;
 import com.example.madproject4.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,9 +42,11 @@ public class showNutritionDetails extends BaseActivity {
 //<!--    "nf_protein": 21,-->
 //<!--    "nf_potassium": null,-->
      TextView caltxt, fat_txt, sfat_txt,chol_txt,sod_txt,carb_txt,diber_txt,sugars_txt,protein_txt,pott_txt
-        , food_api_title;
+        , food_api_title, serv_size_txtv;
+    String thmb;
     String base_url = "https://trackapi.nutritionix.com/v2/search/item?nix_item_id=";
     private RequestQueue requestQueue;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,8 @@ public class showNutritionDetails extends BaseActivity {
         setContentView(R.layout.activity_show_nutrition_details);
         String n_id = getIntent().getStringExtra("nix_id");
         String food_nix_name = getIntent().getStringExtra("nix_name");
+        thmb = getIntent().getStringExtra("nix_thumb");
+        imageView = findViewById(R.id.nutri_detail_thumb);
         caltxt = findViewById(R.id.cal);
         fat_txt = findViewById(R.id.fat);
         sfat_txt = findViewById(R.id.sat_fat);
@@ -61,11 +67,19 @@ public class showNutritionDetails extends BaseActivity {
         protein_txt = findViewById(R.id.protein);
         pott_txt = findViewById(R.id.potassium);
         food_api_title = findViewById(R.id.food_api_title);
+        serv_size_txtv = findViewById(R.id.serving_size);
         food_api_title.setText(food_nix_name);
+
         jsonrequest(base_url+n_id);
+//        if(thmb != "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png")
+//        {
+//            Picasso.with(this)// Context
+//                    .load(thmb).fit().centerCrop()
+//                    .into(imageView);
+//        }
 
     }
-
+   String serv_qty, serv_unit,serv_weight_grams;
     private void jsonrequest (String url) {
            JsonObjectRequest req =  new JsonObjectRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONObject>() {
@@ -74,7 +88,6 @@ public class showNutritionDetails extends BaseActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("foods");
-
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
                         String cal = jsonObject.getString("nf_calories");
                         String tf = jsonObject.getString("nf_total_fat");
@@ -86,17 +99,31 @@ public class showNutritionDetails extends BaseActivity {
                         String sg = jsonObject.getString("nf_sugars");
                         String pt = jsonObject.getString("nf_protein");
                         String pts = jsonObject.getString("nf_potassium");
+                        serv_qty = jsonObject.getString("serving_qty");
+                    serv_unit = jsonObject.getString("serving_unit");
+                    serv_weight_grams = jsonObject.getString("serving_weight_grams");
+                    if(serv_qty != null)
+                    {
+                        serv_size_txtv.setText("serving :  "+serv_qty+" serving");
+                    }
+                    else if(serv_weight_grams != null){
+                        serv_size_txtv.setText("serving :  "+serv_weight_grams+" g");
+                    }
+                    else {
+                        serv_size_txtv.setText("1 serving");
+                    }
 
-                        cal = cal + "kcal";
-                        tf = tf + "g";
-                        sf = sf + "g";
-                        chl = chl + "mg";
-                        sod = sod + "mg";
-                        cb = cb + "g";
-                        df = df + "g";
-                        sg = sg + "g";
-                        pt = pt + "g";
-                        pts = pts + "mg";
+
+                        cal = cal + " kcal";
+                        tf = tf + " g";
+                        sf = sf + " g";
+                        chl = chl + " mg";
+                        sod = sod + " mg";
+                        cb = cb + " g";
+                        df = df + " g";
+                        sg = sg + " g";
+                        pt = pt + " g";
+                        pts = pts + " mg";
 
                         caltxt.setText(cal );
                         fat_txt.setText(tf);
@@ -107,7 +134,12 @@ public class showNutritionDetails extends BaseActivity {
                         diber_txt.setText(df);
                         sugars_txt.setText(sg);
                         protein_txt.setText(pt);
-                        pott_txt.setText(pts);
+                        if(pts == null)
+                            pott_txt.setText("0");
+                        else
+                            pott_txt.setText(pts);
+
+
 
 
 

@@ -71,7 +71,9 @@ public class MainActivity extends BaseActivity {
        HomeFragment fragmentTakePicContainer = new HomeFragment();
        loadFragment(fragmentTakePicContainer);
       // dbh =  new DatabaseHistory(this);
+       tempData.clear();
 
+       //firebase get data
         fb_ing.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -79,8 +81,6 @@ public class MainActivity extends BaseActivity {
                 {
 
                     Ingredients ingredients = ds.getValue(Ingredients.class);
-                    //Log.d("fetched data", "onDataChange: "+ds.getValue()+ "..,");
-                    //  finalTemp.toLowerCase() );
                     tempData.add(ingredients);
                  }
             }
@@ -98,11 +98,8 @@ public class MainActivity extends BaseActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
                 String fragmentTag = null;
-
-
                 switch (item.getItemId())
                 {
-
                     case R.id.nav_home :
                     MainActivity m = new MainActivity();
                     Intent i = new Intent(MainActivity.this,MainActivity.class);
@@ -133,10 +130,10 @@ public class MainActivity extends BaseActivity {
                         }
 
                         break;
-                    case R.id.nav_share :
-                        fragment = new AdminLogin();
-                        fragmentTag = "admin";
-                        break;
+//                    case R.id.nav_share :
+//                        fragment = new AdminLogin();
+//                        fragmentTag = "admin";
+//                        break;
                 }
                 if(fragment!=null) {
                     addNewFragment(fragment, fragmentTag);

@@ -9,10 +9,17 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Smart Shopper"
+        android:label="Smart Food Choices"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Admin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Activities.showIndItemFromHistory" />
         <activity android:name=".Activities.show_daily_recommended_values" />
         <activity android:name=".Activities.FirebaseIndividualIngredDetails" />

@@ -89,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/cholestrol"
                 android:textSize="20dp"
+                android:text=" 300mg"
                 android:layout_marginLeft="40dp"
                 android:textColor="@color/textColor"
                 />

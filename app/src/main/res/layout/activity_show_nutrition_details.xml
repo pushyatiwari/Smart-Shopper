@@ -17,19 +17,9 @@
 <!--    "nf_protein": 21,-->
 <!--    "nf_potassium": null,-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="188dp"
-        android:layout_marginBottom="669dp"
-        android:layout_alignBottom="@+id/food_api_title"
-        android:text="Nutritional Information"
-        android:textColor="@color/textColor"
-        android:textSize="20dp" />
 
     <ImageView
+        android:id="@+id/nutri_detail_thumb"
         android:layout_width="match_parent"
         android:layout_height="172dp"
         android:layout_alignParentStart="true"
@@ -47,6 +37,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:hint="Title"
+        android:textSize="20dp"
         android:textColor="@color/textColor"
         android:text="Nutritional Information"
        />
@@ -59,13 +50,24 @@
         android:layout_marginBottom="474dp"
         android:background="#c0c0c0" />
 
+    <TextView
+        android:id="@+id/serving_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="429dp"
+        android:textColor="@color/textColor"
+        android:textSize="20dp" />
+
     <TableLayout
         android:layout_width="318dp"
         android:layout_height="341dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="122dp">
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="74dp">
 
         <TableRow
             android:layout_width="fill_parent"

@@ -35,7 +35,6 @@ public class MyAdapter extends ArrayAdapter<String> {
         this.rTitle = title;
         this.rDescription = description;
         this.rImgs = imgs;
-
     }
 
     @NonNull
@@ -47,11 +46,10 @@ public class MyAdapter extends ArrayAdapter<String> {
         TextView myTitle = row.findViewById(R.id.listItemText);
         TextView myDescription = row.findViewById(R.id.listItemDesc);
 
-        // now set our resources on views
 
-        Picasso.with(context)// Context
-                .load(rImgs[position]).fit().centerCrop() // URL or file
-                .into(images); // An ImageView object to show the loaded image
+        Picasso.with(context)
+                .load(rImgs[position]).fit().centerCrop()
+                .into(images);
         myTitle.setText(rTitle[position]);
         myDescription.setText(rDescription[position]);
     return row;

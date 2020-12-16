@@ -82,7 +82,6 @@ public class RecentSearch extends Fragment {
         {
             tempFb_title.add(MainActivity.tempData.get(i).getTitle());
             hashMap.put(MainActivity.tempData.get(i).getTitle(), i);
-            Log.d("descriptionRS111111" , "" + MainActivity.tempData.get(i).getTitle());
 
         }
 
@@ -106,7 +105,7 @@ public class RecentSearch extends Fragment {
         switch(item.getItemId()) {
             case R.id.delete:
                 deleteItemfromdb(mTitle[listPosition]);
-                Toast.makeText(getActivity(), "to delete this in history", Toast.LENGTH_SHORT).show();                return true;
+                Toast.makeText(getActivity(), "Item deleted", Toast.LENGTH_SHORT).show();                return true;
 
         }
         return super.onContextItemSelected(item);
@@ -180,6 +179,4 @@ public class RecentSearch extends Fragment {
             });
         }
     }
-
-
 }

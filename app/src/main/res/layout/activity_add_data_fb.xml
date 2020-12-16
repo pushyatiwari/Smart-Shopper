@@ -71,14 +71,10 @@
         android:layout_height="wrap_content"
         android:text="Insert" />
 
-    <Button
-        android:id="@+id/view_dbbtn_fb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View All" />
+
 
     <Button
-        android:id="@+id/getId_fb"
+        android:id="@+id/clear_fb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="id get" />

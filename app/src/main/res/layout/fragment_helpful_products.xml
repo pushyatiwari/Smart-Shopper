@@ -27,9 +27,9 @@
         android:layout_height="wrap_content"
         android:text="search"
         android:ems="8"
+        android:background="@drawable/custom_button"
         android:layout_gravity="center"
         android:textColor="@color/white"
-        android:background="@color/colorPrimary"
         />
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"

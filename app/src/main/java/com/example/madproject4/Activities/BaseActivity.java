@@ -42,10 +42,10 @@ public class BaseActivity extends AppCompatActivity {
                 Intent i = new Intent(BaseActivity.this, Guide.class);
                 startActivity(i);
                 return true;
-            case R.id.menu_aboutus:
-                Intent i1 = new Intent(BaseActivity.this, Aboutus.class);
-                startActivity(i1);
-                return true;
+//            case R.id.menu_aboutus:
+//                Intent i1 = new Intent(BaseActivity.this, Aboutus.class);
+//                startActivity(i1);
+//                return true;
             case R.id.menu_contact:
                 Intent i2 = new Intent(BaseActivity.this, ContactUs.class);
                 startActivity(i2);                return true;

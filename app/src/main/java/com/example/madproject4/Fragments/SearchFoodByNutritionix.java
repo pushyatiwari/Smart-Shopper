@@ -12,10 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,15 +22,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.madproject4.Activities.CaptureResult;
-import com.example.madproject4.Activities.ShowDetailsCapture;
 import com.example.madproject4.Activities.showNutritionDetails;
-import com.example.madproject4.Adapters.MyAdapter;
 import com.example.madproject4.Adapters.RecyclerViewAdapter;
-import com.example.madproject4.MainActivity;
 import com.example.madproject4.Model.Food;
 import com.example.madproject4.R;
 
@@ -55,11 +48,12 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
     //https://trackapi.nutritionix.com/v2/search/instant?query=grilled cheese
     private final String JSON_URL1 = "https://trackapi.nutritionix.com/v2/search/instant?query=";
     private RequestQueue requestQueue;
-    private List<Food> lstAnime;
+    private List<Food> listFood;
     private RecyclerView recyclerView;
     private EditText search_edt;
     private Button search_food;
     String search_query;
+    String thmb;
     public SearchFoodByNutritionix() {
         // Required empty public constructor
     }
@@ -71,7 +65,7 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
         // Inflate the layout for this fragment
 
         view = inflater.inflate(R.layout.fragment_helpful_products, container, false);
-        lstAnime = new ArrayList<>();
+        listFood = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclerviewid);
         search_edt = view.findViewById(R.id.edit_searchfood);
 
@@ -79,7 +73,7 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
         search_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lstAnime.clear();
+                listFood.clear();
                 search_query = search_edt.getText().toString();
                 String url = JSON_URL1.concat(search_query);
                 Log.d("url ", "onClick: "+ url+ " , "+search_query);
@@ -91,40 +85,34 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
 
     }
         private void jsonrequest (String url) {
-
-
-            JsonObjectRequest req =  new JsonObjectRequest(Request.Method.GET, url,
+             JsonObjectRequest req =  new JsonObjectRequest(Request.Method.GET, url,
                     null, new Response.Listener<JSONObject>() {
 
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
+
+
                         JSONArray jsonArray = response.getJSONArray("branded");
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                            String name = jsonObject.getString("food_name");
-                            Log.d("food name", name);
-                            Food anime = new Food() ;
-                            anime.setName(jsonObject.getString("food_name"));
-                            anime.setNf_calories(jsonObject.getString("nf_calories"));
-                            anime.setBrand_name(jsonObject.getString("brand_name"));
+                            Food food = new Food() ;
+                            food.setName(jsonObject.getString("food_name"));
+                            food.setNf_calories(jsonObject.getString("nf_calories"));
+                            food.setBrand_name(jsonObject.getString("brand_name"));
                             JSONObject photo = jsonObject.getJSONObject("photo");
-                            String thmb = photo.getString("thumb");
-                            anime.setThumb(thmb);
-                            anime.setNix_item_id(jsonObject.getString("nix_item_id"));
-                            lstAnime.add(anime);
+                            thmb = photo.getString("thumb");
+                            food.setThumb(thmb);
+                            food.setNix_item_id(jsonObject.getString("nix_item_id"));
+                            listFood.add(food);
                         }
-                        setuprecyclerview(lstAnime);
-
-                        Log.d("Response food", response.getString("branded"));
+                        setuprecyclerview(listFood);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
-
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
@@ -168,10 +156,11 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
 
     @Override
     public void onFoodClick(int position) {
-        Food p = lstAnime.get(position);
+        Food p = listFood.get(position);
         Intent i = new Intent(getActivity(), showNutritionDetails.class);
         i.putExtra("nix_id",p.getNix_item_id());
         i.putExtra("nix_name",p.getName());
+        i.putExtra("nix_thumb",thmb);
         startActivity(i);
             Log.d("clicked: ", "onClick: " + p.getName()+
                  " -- "+p.getBrand_name() + "id" + p.getNix_item_id());
