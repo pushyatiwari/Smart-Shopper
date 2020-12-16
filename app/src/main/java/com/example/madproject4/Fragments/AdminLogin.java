@@ -36,7 +36,7 @@ Button reg, log, addfb;
         reg = view.findViewById(R.id.reg_admin);
         log = view.findViewById(R.id.login_admin);
        // addfb = (Button) view.findViewById(R.id.adddata_fb);
-
+        loadFragment(login_f);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

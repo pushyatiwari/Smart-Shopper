@@ -3,15 +3,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_white"
             android:title="Home" />
         <item
             android:id="@+id/nav_takePicture"
-            android:icon="@drawable/ic_takepic"
             android:title="Take Picture" />
         <item
             android:id="@+id/nav_search_food"
-            android:icon="@drawable/ic_safe"
             android:title="Search Food" />
 
     </group>
@@ -21,7 +18,6 @@
 <!--        to email the user a certain product, asks email -->
         <item
             android:id="@+id/nav_history"
-            android:icon="@drawable/ic_send"
             android:title="Recent search" />
 <!--        <item-->
 <!--            android:id="@+id/nav_share"-->

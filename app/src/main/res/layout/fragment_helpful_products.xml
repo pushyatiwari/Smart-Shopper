@@ -12,15 +12,25 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
     <EditText
         android:id="@+id/edit_searchfood"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
         android:textColor="@color/textColor"
         android:textSize="25dp"
         android:hint="Search any food"
         />
+    <ImageView
+        android:id="@+id/btnSpeak"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_mic"/>
+</LinearLayout>
     <Button
         android:id="@+id/search_food_btn"
         android:layout_width="wrap_content"

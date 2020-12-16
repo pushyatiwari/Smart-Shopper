@@ -86,7 +86,7 @@ mainly to mayonnaise. "
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:textColor="@color/textColorBlue"
-        android:text="EFFECTS: " />
+        android:text="HEALTH EFFECTS: " />
 
     <TextView
         android:id="@+id/disease"
