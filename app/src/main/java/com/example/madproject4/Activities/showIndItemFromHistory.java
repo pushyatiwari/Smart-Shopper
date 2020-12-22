@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class showIndItemFromHistory extends AppCompatActivity {
-    String title, desc, added, effects, harmful, imageUrl;
+    String title, desc, added, effects, harmful = "", imageUrl;
     TextView title_tv, desc_tv, effects_tv;
     ImageView imageView_title, imageView_harmful;
     Ingredients tempIng;
@@ -39,11 +41,17 @@ public class showIndItemFromHistory extends AppCompatActivity {
         Toast.makeText(this, "no item to be shown", Toast.LENGTH_SHORT).show();
     }
         else {
-        tempIng = MainActivity.tempData.get(pos);
-        desc = tempIng.getDescription() + "\n\n\nAdded in: \n" + tempIng.getAddedIn();
-        effects = tempIng.getEffects();
-        harmful = tempIng.getHarmful();
-        imageUrl = tempIng.getImageUrl();
+            ArrayList<Ingredients> temp = MainActivity.tempData;
+            for(int i = 0; i < temp.size(); i++){
+                if(temp.get(i).getTitle().equals(title))
+                {
+                    desc = temp.get(i).getDescription() + "\n\n\nAdded in: \n" + temp.get(i).getAddedIn();
+                    effects = temp.get(i).getEffects();
+                    harmful = temp.get(i).getHarmful();
+                    imageUrl = temp.get(i).getImageUrl();
+                }
+            }
+
         title_tv.setText(title);
         desc_tv.setText(desc);
         effects_tv.setText(effects);

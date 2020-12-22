@@ -191,23 +191,6 @@ public class FragmentTakePicture extends Fragment {
                             finalTemp = temp;
                         } else {
                             finalTemp = temp;
-                            //if that similar item exists in sql, take the title and push to arraylist.
-//                            Cursor res = myDb.getAllData();
-//                            if (res.getCount() == 0) {
-//                                // show message
-//                                showMessage("Error", "Nothing found");
-//                                return;
-//                            }
-
-//                            while (res.moveToNext()) {
-//
-//                                String title = res.getString(1);
-//                                Log.d("tempSQL", "onActivityResult: "+title+" , temp - "+temp);
-//                                if(temp.toLowerCase().contains(title.toLowerCase())){
-//                                    itemsArraylist.add(title);
-//                                    break;
-//                                }
-//                             }
 
                             for (int j = 0; j < MainActivity.tempData.size(); j++) {
                                 // Log.d("arraylist", "onActivityResult: " + itemsArraylist.get(i));

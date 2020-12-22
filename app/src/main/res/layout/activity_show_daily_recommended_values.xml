@@ -40,7 +40,8 @@
                 />
 
         </TableRow>
-        <TableRow>
+        <TableRow             android:layout_marginTop="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,7 +59,8 @@
                 />
 
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +78,8 @@
                 />
 
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +99,8 @@
 
 
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,7 +118,8 @@
                 />
 
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,7 +137,8 @@
                 />
 
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -150,7 +156,8 @@
                 android:textColor="@color/textColor"
                 />
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -168,7 +175,8 @@
                 android:textColor="@color/textColor"
                 />
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -186,7 +194,8 @@
                 android:textColor="@color/textColor"
                 />
         </TableRow>
-        <TableRow>
+        <TableRow            android:layout_marginTop="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -204,6 +213,131 @@
                 />
 
         </TableRow>
+
+        <TableRow            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total lipid(fat)"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:text=" 44 grams to 77 grams of fat per day "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Energy"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:text= "2,500kcal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calcium"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:text="2500 mg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vitamin D"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+       <HorizontalScrollView android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+            <TextView
+                android:text="400 international units (IU) for children up to age 12 months, 600 IU for ages 1 to 70 years, and 800 IU for people over 70 years."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+       </HorizontalScrollView>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vitamin C"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:text=" 65 to 90 milligrams (mg)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </TableRow>
+
+        <TableRow            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vitamin A"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:text=" 3,000 (900 mcg) for
+                 men and 2,330 IU (700 mcg) for women."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+        </TableRow>
+
 
 
     </TableLayout>

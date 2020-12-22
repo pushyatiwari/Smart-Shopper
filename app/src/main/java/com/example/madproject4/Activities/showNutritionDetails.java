@@ -31,22 +31,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class showNutritionDetails extends BaseActivity {
-//    <!--    "nf_calories": 570,-->
-//<!--    "nf_total_fat": 29,-->
-//<!--    "nf_saturated_fat": 12,-->
-//<!--    "nf_cholesterol": 45,-->
-//<!--    "nf_sodium": 1680,-->
-//<!--    "nf_total_carbohydrate": 61,-->
-//<!--    "nf_dietary_fiber": 2,-->
-//<!--    "nf_sugars": 11,-->
-//<!--    "nf_protein": 21,-->
-//<!--    "nf_potassium": null,-->
      TextView caltxt, fat_txt, sfat_txt,chol_txt,sod_txt,carb_txt,diber_txt,sugars_txt,protein_txt,pott_txt
-        , food_api_title, serv_size_txtv;
+        , food_api_title, serv_size_txtv,lfat_txt, energy_txt, calcium_txt,vitd_txt,vitc_txt,vita_txt;
     String thmb;
     String base_url = "https://trackapi.nutritionix.com/v2/search/item?nix_item_id=";
     private RequestQueue requestQueue;
     ImageView imageView;
+    HashMap<String, String> fullnutr_mp = new HashMap<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +58,24 @@ public class showNutritionDetails extends BaseActivity {
         sugars_txt = findViewById(R.id.sugar);
         protein_txt = findViewById(R.id.protein);
         pott_txt = findViewById(R.id.potassium);
+        //
+        calcium_txt = findViewById(R.id.cal);
+        energy_txt = findViewById(R.id.energy);
+        lfat_txt = findViewById(R.id.tlfat);
+        vitd_txt = findViewById(R.id.vit_d);
+        vita_txt = findViewById(R.id.vit_a);
+        vitc_txt = findViewById(R.id.vit_c);
         food_api_title = findViewById(R.id.food_api_title);
         serv_size_txtv = findViewById(R.id.serving_size);
         food_api_title.setText(food_nix_name);
+        fullnutr_mp.put("204","Total lipid(fat)");
+        fullnutr_mp.put("208","Energy");
+        fullnutr_mp.put("301","Calcium");
+        fullnutr_mp.put("324","Vitamin D");
+        fullnutr_mp.put("401","Vitamin C, total ascorbic acid");
+        fullnutr_mp.put("318","Vitamin A, IU");
+
+
 
         jsonrequest(base_url+n_id);
 //        if(thmb != "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png")
@@ -101,17 +108,49 @@ public class showNutritionDetails extends BaseActivity {
                         String pts = jsonObject.getString("nf_potassium");
                         serv_qty = jsonObject.getString("serving_qty");
                     serv_unit = jsonObject.getString("serving_unit");
+                   String serv_weight = jsonObject.getString("serving_weight_grams");
+
                     serv_weight_grams = jsonObject.getString("serving_weight_grams");
-                    if(serv_qty != null)
+                    if(serv_qty == null)
                     {
-                        serv_size_txtv.setText("serving :  "+serv_qty+" serving");
+                        serv_qty = "_";
                     }
-                    else if(serv_weight_grams != null){
-                        serv_size_txtv.setText("serving :  "+serv_weight_grams+" g");
+                    if(serv_qty == "")
+                    {
+                        serv_qty = "_";
                     }
-                    else {
-                        serv_size_txtv.setText("1 serving");
+                    if(serv_qty.isEmpty())
+                    {
+                        serv_qty = "_";
                     }
+                    if(serv_unit == null)
+                    {
+                        serv_unit = "_";
+                    }
+                    if(serv_unit == "")
+                    {
+                        serv_unit = "_";
+                    }
+                    if(serv_unit.isEmpty())
+                    {
+                        serv_unit = "_";
+                    }
+                    if(serv_weight == null)
+                    {
+                        serv_weight = "_";
+                    }
+                    if(serv_weight == "")
+                    {
+                        serv_weight = "_";
+                    }
+                    if(serv_weight.isEmpty())
+                    {
+                        serv_weight = "_";
+                    }
+                    serv_size_txtv.setText("serving quantity:  "+serv_qty + "\n" +
+                                "serving unit: " + serv_unit + "\nserving_weight_grams: " + serv_weight);
+
+
 
 
                         cal = cal + " kcal";
@@ -138,6 +177,44 @@ public class showNutritionDetails extends BaseActivity {
                             pott_txt.setText("0");
                         else
                             pott_txt.setText(pts);
+                    JSONArray full_nutriets = jsonObject.getJSONArray("full_nutrients");
+                    for (int i = 0;i < full_nutriets.length();i++)
+                    {
+                        JSONObject jo = full_nutriets.getJSONObject(i);
+                        String attr = jo.getString("attr_id");
+                        String val = jo.getString("value");
+                        if(fullnutr_mp.containsKey(attr))
+                        {
+                            String nut_name = fullnutr_mp.get(attr);
+                            if(nut_name == "Total lipid(fat)")
+                            {
+                                lfat_txt.setText(val + "g");
+                            }
+                            else if(nut_name == "Energy")
+                            {
+                                energy_txt.setText(val + "kcal");
+                            }
+                            else if(nut_name == "Calcium")
+                            {
+                                calcium_txt.setText(val + "mg");
+                            }
+                            else if(nut_name == "Vitamin D")
+                            {
+                                vitd_txt.setText(val + "IU");
+                            }
+                            else if(nut_name == "Vitamin C, total ascorbic acid")
+                        {
+                            vitc_txt.setText(val + "mg");
+                        }
+                        else if(nut_name == "Vitamin A, IU")
+                        {
+                            vita_txt.setText(val + "IU");
+                        }
+
+                        }
+
+                        Log.d("full nutrients: ", "onResponse: " +attr +", "+val );
+                    }
 
 
 
