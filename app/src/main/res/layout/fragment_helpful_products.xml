@@ -1,49 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.SearchFoodByNutritionix"
-   >
+    tools:context=".Fragments.SearchFoodByNutritionix">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/commcheck_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Common Foods"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/brandcheck_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Branded Foods"
+                android:textStyle="bold"
+
+                />
+        </RadioGroup>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-    <EditText
-        android:id="@+id/edit_searchfood"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:textColor="@color/textColor"
-        android:textSize="25dp"
-        android:hint="Search any food"
-        />
-    <ImageView
-        android:id="@+id/btnSpeak"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_mic"/>
-</LinearLayout>
-    <Button
-        android:id="@+id/search_food_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="search"
-        android:ems="8"
-        android:background="@drawable/custom_button"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        />
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/recyclerviewid"/>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edit_searchfood"
+                android:layout_width="330dp"
+                android:layout_height="50dp"
+                android:hint="Search any food"
+                android:textColor="@color/textColor"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:id="@+id/btnSpeak"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_mic" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/search_food_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_button"
+            android:ems="8"
+            android:text="search"
+            android:textColor="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </LinearLayout>

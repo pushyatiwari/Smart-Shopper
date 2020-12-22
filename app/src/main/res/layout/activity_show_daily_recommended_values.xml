@@ -326,15 +326,17 @@
                 android:text="Vitamin A"
                 android:textColor="@color/textColor"
                 android:textSize="20dp" />
-
-            <TextView
-                android:text=" 3,000 (900 mcg) for
-                 men and 2,330 IU (700 mcg) for women."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
+        <ScrollView android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+                    <TextView
+                        android:text=" 3,000 (900 mcg) for
+                         men and 2,330 IU (700 mcg) for women."
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:textColor="@color/textColor"
+                        android:textSize="20dp" />
+        </ScrollView>
 
         </TableRow>
 
