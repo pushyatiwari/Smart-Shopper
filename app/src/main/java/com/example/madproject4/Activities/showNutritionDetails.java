@@ -2,7 +2,9 @@ package com.example.madproject4.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +40,19 @@ public class showNutritionDetails extends BaseActivity {
     private RequestQueue requestQueue;
     ImageView imageView;
     HashMap<String, String> fullnutr_mp = new HashMap<>();
+    public static final String MyPREFERENCES = "myFoodNutritionPrefs" ;
+    public static final String protein_pref = "Protein";
+    public static final String carb_pref = "Carbohydrate";
+    public static final String enrgy_pref = "Energy";
+    public static final String vita_pref = "Vitamin A";
+    public static final String vitd_pref = "Vitamin D";
+    public static final String vite_pref = "Vitamin E";
+    public static final String vitc_pref = "Vitamin C";
+    public static final String sugar_pref = "Sugar";
+    public static final String calcium_pref = "Calcium";
+    public static final String calories_pref = "Calories";
+    SharedPreferences sharedpreferences;
+    HashMap<String, String> attr_ids = new HashMap<>();
 
 
     @Override
@@ -47,6 +62,7 @@ public class showNutritionDetails extends BaseActivity {
         String n_id = getIntent().getStringExtra("nix_id");
         String food_nix_name = getIntent().getStringExtra("nix_name");
         thmb = getIntent().getStringExtra("nix_thumb");
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         imageView = findViewById(R.id.nutri_detail_thumb);
         caltxt = findViewById(R.id.cal);
         fat_txt = findViewById(R.id.fat);
@@ -183,6 +199,7 @@ public class showNutritionDetails extends BaseActivity {
                         JSONObject jo = full_nutriets.getJSONObject(i);
                         String attr = jo.getString("attr_id");
                         String val = jo.getString("value");
+                        attr_ids.put(attr,val);
                         if(fullnutr_mp.containsKey(attr))
                         {
                             String nut_name = fullnutr_mp.get(attr);
@@ -215,6 +232,7 @@ public class showNutritionDetails extends BaseActivity {
 
                         Log.d("full nutrients: ", "onResponse: " +attr +", "+val );
                     }
+
 
 
 
@@ -261,5 +279,76 @@ public class showNutritionDetails extends BaseActivity {
 
     public void showDailyRecommendedValues(View view) {
        startActivity(new Intent(showNutritionDetails.this, show_daily_recommended_values.class));
+    }
+
+    public void addtofooddatabase_brand(View view) {
+        Toast.makeText(this, "Added, to check details, check out daily nutrition track", Toast.LENGTH_SHORT).show();
+
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        float temp_prot_prefd = 0, temp_energy_prefd =0, temp_vita_prefd = 0,temp_vitd_prefd = 0,
+                temp_vite_prefd = 0,temp_vitc_prefd =0,temp_sugar_prefd = 0,temp_calcium_prefd = 0,
+                temp_cal_prefd = 0,temp_carb_prefd =0;
+        ;
+        try {
+            Float temp_prot_pref = sharedpreferences.getFloat(protein_pref, 0);
+            temp_prot_prefd = (temp_prot_pref + Float.parseFloat(attr_ids.get("203")));
+        }
+        catch (Exception e)
+        { }
+        try{
+            Float temp_energy_pref = sharedpreferences.getFloat(enrgy_pref,0);
+            temp_energy_prefd =(temp_energy_pref + Float.parseFloat(attr_ids.get("208")));}
+        catch (Exception e){}
+        try{
+            Float temp_vita_pref = sharedpreferences.getFloat(vita_pref,0);
+            temp_vita_prefd =(temp_vita_pref + Float.parseFloat(attr_ids.get("318")));}
+        catch (Exception e){}
+        try {
+            Float temp_vitd_pref = sharedpreferences.getFloat(vitd_pref, 0);
+            temp_vitd_prefd = (temp_vitd_pref + Float.parseFloat(attr_ids.get("324")));
+        }catch (Exception e){}
+        try{
+            Float temp_vite_pref = sharedpreferences.getFloat(vite_pref,0);
+            temp_vite_prefd =(temp_vite_pref + Float.parseFloat(attr_ids.get("573")));}
+        catch (Exception e){}
+        try {
+            Float temp_vitc_pref = sharedpreferences.getFloat(vitc_pref, 0);
+            temp_vitc_prefd = (temp_vitc_pref + Float.parseFloat(attr_ids.get("401")));
+        }catch (Exception e){}
+        try {
+            Float temp_sugar_pref = sharedpreferences.getFloat(sugar_pref, 0);
+            temp_sugar_prefd = (temp_sugar_pref + Float.parseFloat(attr_ids.get("269")));
+        }catch (Exception e){}
+        try {
+            Float temp_calcium_pref = sharedpreferences.getFloat(calcium_pref, 0);
+            temp_calcium_prefd = (temp_calcium_pref + Float.parseFloat(attr_ids.get("301")));
+        }catch (Exception e){}
+        try {
+            Float temp_cal_pref = sharedpreferences.getFloat(calories_pref, 0);
+            temp_cal_prefd = (temp_cal_pref + Float.parseFloat(attr_ids.get("208")));
+        }catch (Exception e)
+        {
+
+        }
+        try {
+            Float temp_card_pref = sharedpreferences.getFloat(carb_pref, 0);
+            temp_carb_prefd = (temp_card_pref + Float.parseFloat(attr_ids.get("205")));
+        }catch (Exception e)
+        {
+
+        }
+
+
+        editor.putFloat(protein_pref, temp_prot_prefd);
+        editor.putFloat(carb_pref, temp_carb_prefd);
+        editor.putFloat(enrgy_pref, temp_energy_prefd);
+        editor.putFloat(vita_pref,temp_vita_prefd);
+        editor.putFloat(vitd_pref, temp_vitd_prefd);
+        editor.putFloat(vite_pref, temp_vite_prefd);
+        editor.putFloat(vitc_pref, temp_vitc_prefd);
+        editor.putFloat(sugar_pref, temp_sugar_prefd);
+        editor.putFloat(calcium_pref, temp_calcium_prefd);
+        editor.putFloat(calories_pref,temp_cal_prefd);
+        editor.commit();
     }
 }

@@ -5,21 +5,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.show_daily_recommended_values">
+    android:background="@drawable/investhealth"
+   >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nutrition: Daily Recommended Values"
-        android:textColor="@color/textColor"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+
 
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nutrition"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Daily Value Met"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Left"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Protein"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/protein_sp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/protein_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carbohydrate"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/carb_sp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/carb_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+        </TableRow>
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
@@ -34,243 +116,53 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="2000 kcal"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/cal_sp"
                 android:textColor="@color/textColor"
                 android:textSize="20dp"
 
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/cal_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
 
         </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Fat"
+                android:text="Vitamin A"
                 android:textColor="@color/textColor"
                 android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="60 g"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/vita_sp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/vita_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
 
         </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saturated Fat"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="19 g"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cholestrol"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/cholestrol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text=" 300mg"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sodium"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="2300 mg"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total Carb"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="325 g"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dietary Fiber"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="30 g"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sugar"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="25 g"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Protein"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="56 g"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Potassium"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="4100 g"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total lipid(fat)"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text=" 44 grams to 77 grams of fat per day "
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Energy"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="2,500kcal"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Calcium"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="2500 mg"
-                android:textColor="@color/textColor"
-                android:textSize="20dp" />
-
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -279,22 +171,56 @@
                 android:textColor="@color/textColor"
                 android:textSize="20dp" />
 
-            <HorizontalScrollView
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/vitd_sp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:text="400 international units (IU) for children up to age 12 months, 600 IU for ages 1 to 70 years, and 800 IU for people over 70 years."
-                    android:textColor="@color/textColor"
-                    android:textSize="20dp" />
-            </HorizontalScrollView>
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/vitd_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
 
         </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TableRow android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vitamin E"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/vite_sp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/vite_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -306,45 +232,100 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text=" 65 to 90 milligrams (mg)"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/vitc_sp"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                android:textSize="20dp"
 
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/vitc_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
         </TableRow>
-
-        <TableRow android:layout_marginTop="10dp">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vitamin A"
+                android:text="Sugar"
                 android:textColor="@color/textColor"
                 android:textSize="20dp" />
 
-            <HorizontalScrollView
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/sugar_sp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:text=" 3,000 (900 mcg) for men and 2,330 IU (700 mcg) for women."
-                    android:textColor="@color/textColor"
-                    android:textSize="20dp" />
-            </HorizontalScrollView>
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/sugar_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calcium"
+                android:textColor="@color/textColor"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/calcium_sp"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/calcium_sp_left"
+                android:textColor="@color/textColor"
+                android:textSize="20dp"/>
 
         </TableRow>
 
-
     </TableLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Again"
+        android:ems="10"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/clear"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
+        />
 
-<!--    <Button-->
-<!--        android:id="@+id/showdaily_database"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Show Daily Value"-->
-<!--        android:onClick="showusernutri"-->
-<!--        />-->
+    <Button
+        android:id="@+id/change_pref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_button"
+        android:ems="10"
+        android:text="Change Preferences"
+        android:textColor="@color/white" />
 </LinearLayout>

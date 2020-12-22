@@ -8,9 +8,13 @@
         />
     <item android:title="Guide"
         android:id="@+id/menu_guide"/>
+
 <!--    <item android:title="About us"-->
 <!--        android:id="@+id/menu_aboutus"/>-->
     <item android:title="Contact us"
         android:id="@+id/menu_contact"/>
+
+
+
 
 </menu>

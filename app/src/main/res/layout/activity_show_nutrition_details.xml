@@ -45,6 +45,21 @@
         android:text=""
        />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/common_food_title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="478dp"
+        android:background="@drawable/custom_button"
+        android:onClick="addtofooddatabase_brand"
+        android:text="Add to Your Food List?"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/serving_size"
@@ -418,8 +433,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:background="@color/colorPrimary"
-        android:ems="10"
+        android:background="@drawable/custom_button"
+        android:ems="5"
         android:onClick="showDailyRecommendedValues"
         android:text="Show Daily Recommended Values"
         android:textColor="@color/white" />

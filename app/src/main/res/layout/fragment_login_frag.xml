@@ -42,6 +42,6 @@
         android:layout_gravity="center"
         android:textColor="@color/white"
         android:ems="10"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/custom_button"
         />
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.madproject4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,9 +11,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.madproject4.Activities.BaseActivity;
@@ -23,6 +31,7 @@ import com.example.madproject4.Fragments.FragmentTakePicture;
 import com.example.madproject4.Fragments.HomeFragment;
 import com.example.madproject4.Fragments.SearchFoodByNutritionix;
 import com.example.madproject4.Fragments.RecentSearch;
+import com.example.madproject4.Fragments.showDaliyNutritionTrack;
 import com.example.madproject4.Model.Ingredients;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -32,7 +41,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends BaseActivity {
 
@@ -46,17 +58,45 @@ public class MainActivity extends BaseActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     DatabaseReference fb_ing;
-
-
+    public String age, gender;
+    public  final String MyPREFERENCES2 = "MyPrefs_date" ;
+    public static final String Date = "";
     DatabaseHelper d ;
-   // DatabaseHistory dbh;
+    SharedPreferences sharedpreferences ;
+    SharedPreferences.Editor editor;
+    // DatabaseHistory dbh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+      //  Toast.makeText(this, "" + date, Toast.LENGTH_SHORT).show();
         //
+        sharedpreferences = getSharedPreferences(MyPREFERENCES2, Context.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
+       // Toast.makeText(this, "age is : "+sharedpreferences.getString("age", "") + age, Toast.LENGTH_SHORT).show();
+
+        if(sharedpreferences.getString("age", "").equals(""))
+        {
+            showAlertDialogButtonClicked();
+
+        }
+        else{
+          //  Toast.makeText(this, "age is : "+sharedpreferences.getString("age", ""), Toast.LENGTH_SHORT).show();
+        }
+         if(sharedpreferences.getString(Date, "").equals(date))
+         {
+         }
+         else {
+             editor.putString(Date, date);
+             SharedPreferences preferences2 = getSharedPreferences("myFoodNutritionPrefs", 0);
+             preferences2.edit().clear().commit();
+             editor.commit();
+         }
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer);
@@ -130,10 +170,10 @@ public class MainActivity extends BaseActivity {
                         }
 
                         break;
-//                    case R.id.nav_share :
-//                        fragment = new AdminLogin();
-//                        fragmentTag = "admin";
-//                        break;
+                    case R.id.track_daily_nutrition :
+                        fragment = new showDaliyNutritionTrack();
+                        fragmentTag = "track";
+                        break;
                 }
                 if(fragment!=null) {
                     addNewFragment(fragment, fragmentTag);
@@ -146,12 +186,82 @@ public class MainActivity extends BaseActivity {
         });
 
 
-
-
-
     }
 
 
+    public void showAlertDialogButtonClicked()
+    {
+
+        // Create an alert builder
+        AlertDialog.Builder builder
+                = new AlertDialog.Builder(this);
+        builder.setTitle("Details");
+
+        // set the custom layout
+        final View customLayout
+                = getLayoutInflater()
+                .inflate(
+                        R.layout.user_details,
+                        null);
+        builder.setView(customLayout);
+
+        // add a button
+        builder
+                .setPositiveButton(
+                        "OK",
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(
+                                    DialogInterface dialog,
+                                    int which)
+                            {
+
+                                // send data from the
+                                // AlertDialog to the Activity
+                                EditText editText
+                                        =customLayout.findViewById(
+                                                R.id.userage_edt);
+                                RadioButton r1   =(RadioButton) customLayout.findViewById(
+                                    R.id.male_r);
+                                RadioButton r2   =customLayout.findViewById(
+                                        R.id.female_r);
+
+                                sendDialogDataToActivity(
+                                        editText.getText().toString(), r1.isChecked(),r2.isChecked());
+                            }
+                        });
+
+        // create and show
+        // the alert dialog
+        AlertDialog dialog
+                = builder.create();
+        dialog.show();
+    }
+
+    private void sendDialogDataToActivity(String data, Boolean m, Boolean f)
+    {
+        Toast.makeText(this, "data sent", Toast.LENGTH_SHORT).show();
+        age = data;
+        if(m)
+        {
+            gender = "male";
+        }
+        else{
+            gender = "female";
+        }
+
+        if(sharedpreferences.getString("age", "").equals(""))
+        {
+            showAlertDialogButtonClicked();
+            editor.putString("age", age);
+            editor.putString("gender", gender);
+            editor.commit();
+        }
+        else{
+            Toast.makeText(this, "age is : "+sharedpreferences.getString("age", ""), Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
     public Fragment loadFragment(Fragment fragment) {

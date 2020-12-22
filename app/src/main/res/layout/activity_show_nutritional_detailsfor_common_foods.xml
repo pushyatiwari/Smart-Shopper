@@ -10,43 +10,46 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/common_food_title"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="184dp"
-        android:layout_marginEnd="26dp"
-        android:layout_below="@+id/common_food_title"
-        android:text="Add to Your Food List?" />
+        android:layout_marginStart="214dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="-5dp"
+        android:background="@drawable/custom_button"
+        android:onClick="addtofooddatabase"
+        android:text="Add to Your Food List?"
+        android:textColor="@color/white" />
 
     <ImageView
-            android:id="@+id/nutri_detail_thumb_cf"
-            android:layout_width="331dp"
-            android:layout_height="152dp"
-            android:layout_below="@+id/food_api_title"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="33dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginBottom="472dp"
-            android:src="@drawable/foodone" />
+        android:id="@+id/nutri_detail_thumb_cf"
+        android:layout_width="331dp"
+        android:layout_height="152dp"
+        android:layout_below="@+id/food_api_title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="536dp"
+        android:src="@drawable/foodone" />
 
-        <TextView
-            android:id="@+id/common_food_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:hint="Title"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:textColor="@color/textColor"
-            android:text="Nutritional Information"
-            />
+    <TextView
+        android:id="@+id/common_food_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="3dp"
+        android:hint="Title"
+        android:text="Nutritional Information"
+        android:textColor="@color/textColor"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-
-
-        <TextView
+    <TextView
             android:id="@+id/serving_size_cf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -286,7 +289,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/custom_button"
             android:ems="10"
             android:onClick="showDailyRecommendedValues"
             android:text="Show Daily Recommended Values"

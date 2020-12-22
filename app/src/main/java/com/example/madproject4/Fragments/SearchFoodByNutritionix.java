@@ -108,7 +108,7 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
                         Log.d("url ", "onClick: " + url + " , " + search_query);
                         jsonrequest(url);
                     } else if (comm_checkbox.isChecked()) {
-                        Toast.makeText(getActivity(), "checked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), "checked", Toast.LENGTH_SHORT).show();
                         commonFood_List.clear();
                         flag = 1;
                         listFood.clear();
@@ -148,7 +148,7 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
                 if (resultCode == RESULT_OK && data != null) {
 
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    search_food.setText(result.get(0));
+                    search_edt.setText(result.get(0));
 //                    listFood.clear();
 //                    search_query =result.get(0);
 //                    String url = JSON_URL1.concat(search_query);
@@ -162,7 +162,7 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
                         Log.d("url ", "onClick: " + url + " , " + search_query);
                         jsonrequest(url);
                     } else if (comm_checkbox.isChecked()) {
-                        Toast.makeText(getActivity(), "checked", Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(getActivity(), "checked", Toast.LENGTH_SHORT).show();
                         commonFood_List.clear();
                         flag = 1;
                         listFood.clear();
@@ -341,7 +341,7 @@ public class SearchFoodByNutritionix extends Fragment  implements RecyclerViewAd
         }
         if(flag == 1)
         {
-            Toast.makeText(getActivity(), "clicked " + position, Toast.LENGTH_SHORT).show();
+         //   Toast.makeText(getActivity(), "clicked " + position, Toast.LENGTH_SHORT).show();
             CommonFood cf = commonFood_List.get(position);
             Intent intent = new Intent(getActivity(), showNutritionalDetailsforCommonFoods.class);
             intent.putExtra("nutri_map",  cf.getAttr_id());

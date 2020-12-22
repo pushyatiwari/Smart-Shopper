@@ -10,6 +10,9 @@
         <item
             android:id="@+id/nav_search_food"
             android:title="Search Food" />
+        <item
+            android:id="@+id/track_daily_nutrition"
+            android:title="Today's Nutrition Intake"/>
 
     </group>
 
@@ -19,6 +22,7 @@
         <item
             android:id="@+id/nav_history"
             android:title="Recent search" />
+
 <!--        <item-->
 <!--            android:id="@+id/nav_share"-->
 <!--            android:icon="@drawable/ic_share"-->

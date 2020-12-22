@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.showUserDailyNutrtion">
+
+<!--    <TableLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp">-->
+
+<!--    <TableRow-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Protein"-->
+<!--            android:textColor="@color/textColor"-->
+<!--            android:textSize="20dp" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:id="@+id/protein_sp"-->
+<!--            android:textColor="@color/textColor"-->
+<!--            android:textSize="20dp"-->
+
+<!--            />-->
+
+<!--    </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Carbohydrate"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/carb_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Calories"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/cal_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Vitamin A"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/vita_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Vitamin D"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/vitd_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Vitamin E"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/vite_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Vitamin C"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/vitc_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Sugar"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/sugar_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+<!--        <TableRow-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Calcium"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:id="@+id/calcium_sp"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                android:textSize="20dp"-->
+
+<!--                />-->
+
+<!--        </TableRow>-->
+
+<!--    </TableLayout>-->
+
+</LinearLayout>

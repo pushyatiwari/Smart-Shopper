@@ -13,11 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.showNutritionalDetailsforCommonFoods"></activity>
-        <activity android:name=".Activities.Admin">
+        <activity android:name=".Activities.showUserDailyNutrtion"></activity>
+        <activity android:name=".Activities.showNutritionalDetailsforCommonFoods" />
+        <activity android:name=".Activities.Admin"
+            android:label="Admin Smart food choices ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
