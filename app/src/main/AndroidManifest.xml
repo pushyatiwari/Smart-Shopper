@@ -15,8 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.showUserDailyNutrtion"></activity>
         <activity android:name=".Activities.showNutritionalDetailsforCommonFoods" />
-        <activity android:name=".Activities.Admin"
-            android:label="Admin Smart food choices ">
+        <activity android:name=".Activities.Admin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
